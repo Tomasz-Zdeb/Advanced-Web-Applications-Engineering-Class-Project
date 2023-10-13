@@ -15,3 +15,7 @@ Repository URL: [GitHub/Tomasz-Zdeb/Advanced-Web-Applications-Engineering-Class-
 ## Additonal References
 
 * [IntelliJ Set Up GPG Key](https://www.jetbrains.com/help/idea/2022.3/set-up-GPG-commit-signing.html#configure-the-environment)
+
+* [Add GPG Key to You GitHub Account](https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account)
+
+* [Generating A New GPG Key](https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)
