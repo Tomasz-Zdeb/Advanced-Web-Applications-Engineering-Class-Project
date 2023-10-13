@@ -1,4 +1,4 @@
-package com.tzc.swims;
+package com.tzc.swims.controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
