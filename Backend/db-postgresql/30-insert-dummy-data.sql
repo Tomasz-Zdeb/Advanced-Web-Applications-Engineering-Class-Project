@@ -1,0 +1,1 @@
+INSERT INTO public.test_table VALUES (DEFAULT, 1, 'abc', DEFAULT);
