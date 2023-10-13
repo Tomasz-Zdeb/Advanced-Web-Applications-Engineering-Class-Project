@@ -12,6 +12,20 @@ According to the guidelines provided by the teacher both backend and frontend pr
 
 Repository URL: [GitHub/Tomasz-Zdeb/Advanced-Web-Applications-Engineering-Class-Project](https://github.com/Tomasz-Zdeb/Advanced-Web-Applications-Engineering-Class-Project)
 
+## Initialization
+
+### Frontend (Angular)
+
+```powershell
+ng new swims --routing --skip-git --skip-tests --style css
+```
+
+* [Angular Docs: ng new](https://angular.io/cli/new)
+
+### Backend (API - Spring Boot)
+
+![Screenshot from Spring Initializr showing my settings used to initialize my Spring Boot application](./Resources/spring_project_initialization.png)
+
 ## Additonal References
 
 * [IntelliJ Set Up GPG Key](https://www.jetbrains.com/help/idea/2022.3/set-up-GPG-commit-signing.html#configure-the-environment)
