@@ -33,3 +33,35 @@ ng new swims --routing --skip-git --skip-tests --style css
 * [Add GPG Key to You GitHub Account](https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account)
 
 * [Generating A New GPG Key](https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)
+
+## Project Sprint Schedule
+
+<center>
+
+| Sprint    | Date       |
+|-----------|------------|
+| Sprint 1  | 2023-10-09 |
+| Sprint 2  | 2023-10-16 |
+| Sprint 3  | 2023-10-23 |
+| Sprint 4  | 2023-10-30 |
+| Sprint 5  | 2023-11-06 |
+| Sprint 6  | 2023-11-13 |
+| Sprint 7  | 2023-11-20 |
+| Sprint 8  | 2023-11-27 |
+| Sprint 9  | 2023-12-04 |
+| Sprint 10 | 2023-12-11 |
+| Sprint 11 | 2023-12-18 |
+| Sprint 12 | 2023-12-25 |
+| Sprint 13 | 2024-01-01 |
+| Sprint 14 | 2024-01-08 |
+| Sprint 15 | 2024-01-15 |
+| Sprint 16 | 2024-01-22 |
+| Sprint 17 | 2024-01-29 |
+| Sprint 18 | 2024-02-05 |
+| Sprint 19 | 2024-02-12 |
+| Sprint 20 | 2024-02-19 |
+| Sprint 21 | 2024-02-26 |
+| Sprint 22 | 2024-03-04 |
+| Sprint 23 | 2024-03-11 |
+
+</center>
