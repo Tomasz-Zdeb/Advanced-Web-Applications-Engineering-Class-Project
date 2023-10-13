@@ -12,6 +12,17 @@ According to the guidelines provided by the teacher both backend and frontend pr
 
 Repository URL: [GitHub/Tomasz-Zdeb/Advanced-Web-Applications-Engineering-Class-Project](https://github.com/Tomasz-Zdeb/Advanced-Web-Applications-Engineering-Class-Project)
 
+## Swagger UI
+
+**SWIMS** supports both Swagger and Swagger UI.
+
+Default routes are:
+
+- [/v3/api-docs](http://localhost:8080/v3/api-docs)
+- [/swagger-ui/index.html#/](http://localhost:8080/swagger-ui/index.html#/)
+
+
+
 ## Initialization
 
 ### Frontend (Angular)
@@ -33,6 +44,8 @@ ng new swims --routing --skip-git --skip-tests --style css
 * [Add GPG Key to You GitHub Account](https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account)
 
 * [Generating A New GPG Key](https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)
+
+* [Spring REST OpenApi Documentation](https://www.baeldung.com/spring-rest-openapi-documentation)
 
 ## Project Sprint Schedule
 
