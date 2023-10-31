@@ -39,6 +39,8 @@ ng new swims --routing --skip-git --skip-tests --style css
 
 ## Additonal References
 
+* [Spring Postgres Example](https://www.bezkoder.com/spring-boot-postgresql-example/)
+
 * [IntelliJ Set Up GPG Key](https://www.jetbrains.com/help/idea/2022.3/set-up-GPG-commit-signing.html#configure-the-environment)
 
 * [Add GPG Key to You GitHub Account](https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account)
@@ -46,6 +48,14 @@ ng new swims --routing --skip-git --skip-tests --style css
 * [Generating A New GPG Key](https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)
 
 * [Spring REST OpenApi Documentation](https://www.baeldung.com/spring-rest-openapi-documentation)
+
+* [Spring Request Mapping](https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-controller/ann-requestmapping.html)
+
+* [JPA Topic](https://www.baeldung.com/category/persistence/jpa)
+
+* [JPA Many To Many](https://www.baeldung.com/jpa-many-to-many)
+
+
 
 ## Project Sprint Schedule
 
