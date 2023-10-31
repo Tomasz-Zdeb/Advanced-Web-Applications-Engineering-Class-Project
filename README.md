@@ -51,11 +51,11 @@ ng new swims --routing --skip-git --skip-tests --style css
 
 <center>
 
-| Sprint    | Date       |
-|-----------|------------|
-| Sprint 1  | 2023-10-09 |
-| Sprint 2  | 2023-10-16 |
-| Sprint 3  | 2023-10-23 |
+| Sprint    | End Date   | Active Tasks | Finished Tasks
+|-----------|------------|--------------|---------------
+| Sprint 1  | 2023-10-09 | 8            |7
+| Sprint 2  | 2023-10-16 | 1            |0
+| Sprint 3  | 2023-10-23 | 1            |
 | Sprint 4  | 2023-10-30 |
 | Sprint 5  | 2023-11-06 |
 | Sprint 6  | 2023-11-13 |
