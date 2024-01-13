@@ -2,9 +2,9 @@
 FROM postgres:latest
 
 # Set environment variables
-ENV POSTGRES_USER test_admin_user
-ENV POSTGRES_PASSWORD test_password
-ENV POSTGRES_DB test_swims
+ENV POSTGRES_USER dev_admin_user
+ENV POSTGRES_PASSWORD dev_password
+ENV POSTGRES_DB dev_swims
 
 # Copy SQL scripts to the /docker-entrypoint-initdb.d/ directory in the container
 COPY 10-init-db.sql /docker-entrypoint-initdb.d/10-init-db.sql
