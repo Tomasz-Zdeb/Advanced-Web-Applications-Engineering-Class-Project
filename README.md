@@ -18,18 +18,45 @@ Repository URL: [GitHub/Tomasz-Zdeb/Advanced-Web-Applications-Engineering-Class-
 
 Default routes are:
 
-- [/v3/api-docs](http://localhost:8080/v3/api-docs)
-- [/swagger-ui/index.html#/](http://localhost:8080/swagger-ui/index.html#/)
+- [/api/v3/api-docs](http://localhost:8080/v3/api-docs)
+- [/api/swagger-ui/index.html#/](http://localhost:8080/swagger-ui/index.html#/)
 
 
 
 ## Frontend
+
+#### Development Server
+
+```bash
+npm run start
+```
+Remember to first install all the dependencies:
+
+```bash
+npm install
+```
 
 #### Initialization
 
 ```powershell
 ng new swims --routing --skip-git --skip-tests --style css
 ```
+
+#### Adding Bootstrap
+
+- Install bootstrap in the project by issuing command: `npm install bootstrap`
+- add **bootstrap css reference** to `angular.json` config file
+<div style="text-align: center;">
+    <img src="./Resources/bootstrap_styles.png" style="width: 600px; height: auto;">
+</div>
+
+- add **bootstrap js reference** to `angular.json` config file
+
+<div style="text-align: center;">
+    <img src="./Resources/bootstrap_scripts.png" style="width: 600px; height: auto;">
+</div>
+
+#### Frontend References
 
 * [Angular Docs: ng new](https://angular.io/cli/new)
 
@@ -39,9 +66,18 @@ ng new swims --routing --skip-git --skip-tests --style css
 
 #### Initialization
 
-![Screenshot from Spring Initializr showing my settings used to initialize my Spring Boot application](./Resources/spring_project_initialization.png)
+<div style="text-align: center;">
+    <img src="./Resources/spring_project_initialization.png" style="width: 600px; height: auto;">
+</div>
+
 
 ### Database - PostgreSQL
+
+#### Docker Image Build
+
+```bash
+docker build -t swims-db-posgres .
+```
 
 ## References
 
