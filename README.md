@@ -12,6 +12,16 @@ According to the guidelines provided by the teacher both backend and frontend pr
 
 Repository URL: [GitHub/Tomasz-Zdeb/Advanced-Web-Applications-Engineering-Class-Project](https://github.com/Tomasz-Zdeb/Advanced-Web-Applications-Engineering-Class-Project)
 
+### Branching Strategy
+
+```txt
+develop:   +-------+-------+-------+-------+
+            \     / \     / \     / \     /
+             \   /   \   /   \   /   \   / develop is merged every time that a new feature is completed
+              \ /     \ /     \ /     \ /
+main:          +-------+-------+-------+---[...]-Finished Project---+
+```
+
 ## Swagger UI
 
 **SWIMS** supports both Swagger and Swagger UI.
