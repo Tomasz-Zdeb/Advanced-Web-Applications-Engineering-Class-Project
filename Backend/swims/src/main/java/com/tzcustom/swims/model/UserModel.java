@@ -20,7 +20,7 @@ public class UserModel {
     @Column(name = "password")
     private String password;
     @Column(name = "active")
-    private boolean enabled;
+    private boolean active;
     @Column(name = "role")
     private String role;
 }
