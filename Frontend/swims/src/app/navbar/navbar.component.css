@@ -1,0 +1,14 @@
+nav {
+    background-color: #d1d1d1;
+}
+
+.swims-nav-button {
+    background-color: #eaeaea;
+    color: #777;
+    border: #eaeaea 2px solid;
+}
+
+.swims-nav-button:hover {
+    border: #444 2px solid;
+    color: #444;
+}
