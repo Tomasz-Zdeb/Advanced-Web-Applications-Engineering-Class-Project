@@ -92,7 +92,8 @@
               "browserTarget": "swims:build:production"
             },
             "development": {
-              "browserTarget": "swims:build:development"
+              "browserTarget": "swims:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
