@@ -1,15 +1,17 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'swims-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent {
+export class NavbarComponent{
   isXlScreen: boolean;
   isNavbarCollapsed: boolean = true;
 
-  constructor() {
+  constructor(private authService: AuthService, private router: Router) {
     this.isXlScreen = window.innerWidth >= 1200;
     this.onResize(window.innerWidth);
   }
@@ -24,5 +26,10 @@ export class NavbarComponent {
 
   toggleNavbar() {
     this.isNavbarCollapsed = !this.isNavbarCollapsed;
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 }
