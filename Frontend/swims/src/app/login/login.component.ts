@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
@@ -9,12 +9,20 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit{
-
+  isXlScreen: boolean;
   username: string = '';
   password: string = '';
   loginFailedMessage = '';
 
-  constructor(private http: HttpClient, private router: Router, private authService: AuthService) {}
+  constructor(private http: HttpClient, private router: Router, private authService: AuthService) {
+    this.isXlScreen = window.innerWidth >= 1200;
+    this.onResize(window.innerWidth);
+  }
+
+  @HostListener('window:resize', ['$event.target.innerWidth'])
+  onResize(width: number) {
+    this.isXlScreen = width >= 1200;
+  }
 
   login() {
     const encodedCredentials = window.btoa(this.username + ':' + this.password);
@@ -34,6 +42,7 @@ export class LoginComponent implements OnInit{
           console.error('Login failed', error);
           localStorage.removeItem('auth');
           this.loginFailedMessage = "Login Failed";
+          setTimeout(() => this.loginFailedMessage = "",2000)
         }
       );
   }

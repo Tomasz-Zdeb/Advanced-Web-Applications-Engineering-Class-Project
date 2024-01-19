@@ -1,30 +1,49 @@
-<div class="row justify-content-center">
-    <div class="col-md-6 col-lg-4 mt-5">
-        <!-- Login Form -->
-        <div class="card">
-            <div class="card-body">
-                <h3 class="card-title text-center mb-4">Sign In</h3>
-                <div *ngIf="loginFailedMessage" class="alert alert-danger">
-                    {{ loginFailedMessage }}
-                  </div>
-                <form (ngSubmit)="login()">
-                    <!-- Username Field -->
-                    <div class="mb-3">
-                        <label for="username" class="form-label">Username</label>
-                        <input type="text" class="form-control" id="username" [(ngModel)]="username" name="username" placeholder="Enter username">
+<div class="container-fluid d-flex align-items-center justify-content-center" style="min-height: 100vh; background-color: #ABABAB;">
+    <div class="row justify-content-center align-items-center w-100">
+        <div class="col-xl-4 mb-3">
+            <div class="card rounded-4" style="background-color: #D1D1D1;  border:0px">
+                <div class="card-body">
+                    <div class="d-flex flex-column align-items-center">
+                        <h3 *ngIf="isXlScreen" style="text-align: center;">Unleash Your Productivity with</h3>
+                        <h1 class="display-1">SWIMS</h1>
+                        <img src="../../assets/images/box_logo.png" alt="Logo" style="height: 300px;" class="mb-2">
+                        <h6 class="w-75" style="text-align: center;" *ngIf="isXlScreen">Ultimate minimalistic inventory management system to take your storage initiatives to the next level</h6>
                     </div>
-                    <!-- Password Field -->
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" [(ngModel)]="password" name="password" placeholder="Password">
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3">
+            <div class="card rounded-4" style="background-color: #D1D1D1; border:0px">
+                <div class="card-body ">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <h3 class="mb-3 me-4">Please Log In</h3>
                     </div>
-                    <!-- Sign In Button -->
-                    <div class="d-grid">
-                        <button type="submit" class="btn btn-primary">Sign In</button>
+                    <div *ngIf="loginFailedMessage" class="alert alert-danger">
+                        {{ loginFailedMessage }}
                     </div>
-                </form>
-                
+                    <form (ngSubmit)="login()">
+                        <div class="mb-3 form-floating">
+                            <input type="text" class="form-control" id="username" [(ngModel)]="username" name="username" placeholder="Enter username" style="border:0px">
+                            <label for="username">Username</label>
+                        </div>
+                        <div class="mb-3 form-floating">
+                            <input type="password" class="form-control" id="password" [(ngModel)]="password" name="password" placeholder="Password" style="border:0px">
+                            <label for="password">Password</label>
+                        </div>
+                        <div class="d-flex flex-column align-items-center">
+                            <button type="submit" class="btn w-50">Sign In</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+
+
+
+
+
+
+<!-- <img src="../../assets/images/box_logo.png" alt="Logo" style="height: 50px;"> -->

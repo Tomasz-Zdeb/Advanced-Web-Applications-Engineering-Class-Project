@@ -1,0 +1,16 @@
+p,span,h1,h2,h3,h4,h5,h6,a,label,button{
+    color:#565656
+}
+
+.form-floating .form-control:focus {
+    border-color: #444;
+    box-shadow: 0 0 0.4rem 0.2rem #444;
+}
+
+input, button{
+    background-color: #eaeaea;
+}
+
+button:hover{
+    background-color: #fff;
+}
