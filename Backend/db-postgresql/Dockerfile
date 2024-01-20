@@ -12,6 +12,7 @@ COPY 20-ddl-init.sql /docker-entrypoint-initdb.d/20-ddl-init.sql
 
 # TODO: Remove for production use
 COPY 30-insert-dummy-data.sql /docker-entrypoint-initdb.d/30-insert-dummy-data.sql
+COPY 40-insert-blobls.sql /docker-entrypoint-initdb.d/40-insert-blobls.sql
 
 # The default ENTRYPOINT and CMD for the official PostgreSQL image will
 # automatically execute the scripts in the /docker-entrypoint-initdb.d/ directory.

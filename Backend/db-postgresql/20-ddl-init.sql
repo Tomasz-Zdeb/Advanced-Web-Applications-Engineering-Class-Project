@@ -13,5 +13,10 @@ CREATE TABLE user_table (
     role VARCHAR(255)
 );
 
+CREATE TABLE png_images (
+    image_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    image_binary BYTEA
+);
+
 -- Grant regular user permissions
 GRANT SELECT, INSERT, UPDATE, DELETE ON public.test_table TO dev_user;
