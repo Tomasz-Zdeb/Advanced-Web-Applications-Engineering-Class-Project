@@ -18,5 +18,25 @@ CREATE TABLE png_images (
     image_binary BYTEA
 );
 
+CREATE TABLE storage_spaces (
+    name VARCHAR(255) PRIMARY KEY NOT NULL,
+    description TEXT,
+    image_uuid UUID
+);
+
+CREATE TABLE tags (
+    name VARCHAR(255) PRIMARY KEY,
+    color VARCHAR(7) NOT NULL
+);
+
+CREATE TABLE storage_spaces_to_tags (
+    storage_space_name VARCHAR(255),
+    tag_name VARCHAR(255),
+    PRIMARY KEY (storage_space_name, tag_name),
+    FOREIGN KEY (storage_space_name) REFERENCES storage_spaces(name),
+    FOREIGN KEY (tag_name) REFERENCES tags(name)
+);
+
+
 -- Grant regular user permissions
 GRANT SELECT, INSERT, UPDATE, DELETE ON public.test_table TO dev_user;
