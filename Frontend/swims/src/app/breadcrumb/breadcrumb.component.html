@@ -1,0 +1,14 @@
+<div class="d-grid d-flex align-items-center">
+    <nav aria-label="breadcrumb" class="mt-3 ms-4 me-4 pe-3 pt-2 ps-2 rounded-3" style="border: 3px #888 solid">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item fs-3 fs-4">
+            </li>
+          <li class="breadcrumb-item fs-4" *ngFor="let crumb of breadcrumbs; let last = last" [class.active]="last">
+            <ng-container *ngIf="!last; else lastBreadcrumb">
+              <a routerLink="/{{ crumb | lowercase }}">{{ crumb }}</a>
+            </ng-container>
+            <ng-template #lastBreadcrumb>{{ crumb }}</ng-template>
+          </li>
+        </ol>
+    </nav>
+</div>

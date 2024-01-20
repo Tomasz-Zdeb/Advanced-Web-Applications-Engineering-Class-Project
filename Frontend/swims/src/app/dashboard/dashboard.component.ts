@@ -1,5 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { BreadcrumbService } from '../breadcrumb.service';
 
 @Component({
   selector: 'swims-dashboard',
@@ -10,12 +11,13 @@ export class DashboardComponent implements OnInit{
   isXlScreen: boolean;
   testData: string = '';
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private breadcrumbService: BreadcrumbService) {
     this.isXlScreen = window.innerWidth >= 1200;
     this.onResize(window.innerWidth);
   }
 
   ngOnInit() {
+    this.breadcrumbService.setBreadcrumbs(['Dashboard']);
     this.fetchData();
   }
 

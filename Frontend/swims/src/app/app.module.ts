@@ -9,6 +9,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth.interceptor';
 import { FormsModule } from '@angular/forms';
 import { StatisticsComponent } from './statistics/statistics.component';
+import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+import { SettingsComponent } from './settings/settings.component';
+import { SwimshelpComponent } from './swimshelp/swimshelp.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { StatisticsComponent } from './statistics/statistics.component';
     DashboardComponent,
     LoginComponent,
     NavbarComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    BreadcrumbComponent,
+    SettingsComponent,
+    SwimshelpComponent
   ],
   imports: [
     BrowserModule,
