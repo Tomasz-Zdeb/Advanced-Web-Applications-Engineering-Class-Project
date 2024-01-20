@@ -63,7 +63,7 @@ public class SecurityConfig {
                 .cors(withDefaults())
                 .authorizeHttpRequests((authorize) -> authorize
                                 .dispatcherTypeMatchers(DispatcherType.FORWARD, DispatcherType.ERROR).permitAll()
-                                //.requestMatchers(AUTH_WHITELIST).permitAll()
+                                .requestMatchers(AUTH_WHITELIST).permitAll()
                                 //.anyRequest().permitAll())
                                 .anyRequest().authenticated())
                 .httpBasic(withDefaults())
