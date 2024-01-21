@@ -37,6 +37,11 @@ CREATE TABLE storage_spaces_to_tags (
     FOREIGN KEY (tag_name) REFERENCES tags(name)
 );
 
+CREATE TABLE help_accordion_contents (
+    id VARCHAR(255) PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    content TEXT NOT NULL
+);
 
 -- Grant regular user permissions
 GRANT SELECT, INSERT, UPDATE, DELETE ON public.test_table TO dev_user;

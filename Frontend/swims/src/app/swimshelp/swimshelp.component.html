@@ -4,5 +4,30 @@
     </div>
     <div class="flex-grow-1" style="background-color: #ababab;">
         <swims-breadcrumb></swims-breadcrumb>
+        <div class="container mt-4">
+            <div class="alert alert-success" role="alert">
+                WARNING: This is help page is dynamically fetched from API ✅
+            </div>
+
+            <div class="card">
+                <div class="card-header" style="background-color: #eee;">
+                    Help Topics 💁‍♂️
+                </div>
+                <div class="p-3">
+                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                        <div class="accordion-item rounded-3" *ngFor="let item of accordionItems">
+                          <h2 class="accordion-header swims-no-border">
+                            <button class="accordion-button collapsed fw-bold swims-no-borde" style="color: #666;" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#' + item.id" aria-expanded="false" [attr.aria-controls]="item.id">
+                              {{ item.title }}
+                            </button>
+                          </h2>
+                          <div [id]="item.id" class="accordion-collapse collapse" [attr.data-bs-parent]="'#accordionFlushExample'">
+                            <div class="accordion-body" class="ms-5">{{ item.content }}</div>
+                          </div>
+                        </div>
+                      </div> 
+                </div>                 
+            </div>
+        </div>
     </div>
 </div>
