@@ -12,6 +12,7 @@ import { StatisticsComponent } from './statistics/statistics.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SwimshelpComponent } from './swimshelp/swimshelp.component';
+import { StorageSpacesComponent } from './storage-spaces/storage-spaces.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SwimshelpComponent } from './swimshelp/swimshelp.component';
     StatisticsComponent,
     BreadcrumbComponent,
     SettingsComponent,
-    SwimshelpComponent
+    SwimshelpComponent,
+    StorageSpacesComponent
   ],
   imports: [
     BrowserModule,
