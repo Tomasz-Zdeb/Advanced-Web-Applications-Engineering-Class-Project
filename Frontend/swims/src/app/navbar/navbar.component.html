@@ -6,13 +6,13 @@
 }
 </style>
 
-<nav class="d-flex flex-column align-items-center justify-content-between p-4 swims-navbar">
+<nav class="d-flex flex-column align-items-center justify-content-between p-4 swims-navbar"style="overflow-y: auto;">
   <div class="d-grid w-100">
     <div class="d-flex align-items-center justify-content-between mb-3 mx-3">
       <div class="d-grid d-flex align-items-center">
-        <a class="navbar-brand" href="#">
-          <img src="../../assets/images/box_logo.png" alt="Logo" style="height: 50px;">
-          <span class="fs-2 ms-2" style="color:#444">SWIMS</span>
+        <a class="navbar-brand d-flex align-items-center" href="#">
+          <img src="../../assets/images/box_logo.png" alt="Logo" style="height: 2.3em;">
+          <span class="fs-2 ms-1" style="color:#444">SWIMS</span>
         </a>
       </div>
       <div>
@@ -34,13 +34,11 @@
         <span class="fs-4 ms-4 me-4" [ngClass]="{'': isXlScreen, 'order-2': !isXlScreen}">Settings</span>
         <i class="bi bi-gear-fill" [ngStyle]="{'font-size': isXlScreen ? '5em' : '1em'}" [ngClass]="{'': isXlScreen, 'order-1': !isXlScreen}"></i>
       </a>
+      <a class="btn swims-nav-button d-flex align-items-center p-3 mb-3" routerLink="/help" [ngClass]="{'flex-column justify-content-center': isXlScreen, 'justify-content-start': !isXlScreen}">
+        <span class="fs-4 ms-4 me-4" [ngClass]="{'': isXlScreen, 'order-2': !isXlScreen}">Help</span>
+        <i class="bi bi-question-circle-fill" [ngStyle]="{'font-size': isXlScreen ? '5em' : '1em'}" [ngClass]="{'': isXlScreen, 'order-1': !isXlScreen}"></i>
+      </a>
+      <a class="btn swims-nav-button fs-4" (click)="logout()">Log Out</a>
     </div>
   </div>
-  <div class="d-grid w-100" *ngIf="isXlScreen || isNavbarCollapsed">
-    <a class="btn swims-nav-button d-flex align-items-center p-3 mb-3" routerLink="/help" [ngClass]="{'flex-column justify-content-center': isXlScreen, 'justify-content-start': !isXlScreen}">
-      <span class="fs-4 ms-4 me-4" [ngClass]="{'': isXlScreen, 'order-2': !isXlScreen}">Help</span>
-      <i class="bi bi-question-circle-fill" [ngStyle]="{'font-size': isXlScreen ? '5em' : '1em'}" [ngClass]="{'': isXlScreen, 'order-1': !isXlScreen}"></i>
-    </a>
-    <a class="btn swims-nav-button" (click)="logout()">Log Out</a>
-  </div>    
 </nav>
