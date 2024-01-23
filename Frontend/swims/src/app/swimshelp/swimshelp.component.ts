@@ -16,27 +16,6 @@ interface AccordionItem {
 export class SwimshelpComponent implements OnInit{
 
   accordionItems: AccordionItem[] = [];
-
-  mockAcordionData(){
-    this.accordionItems = [
-      {
-        id: 'collapseOne',
-        title: 'How to use Storage Spaces',
-        content: 'Detailed information about using Storage Spaces goes here.'
-      },
-      {
-        id: 'collapseTwo',
-        title: 'Managing Your Items',
-        content: 'Tips on managing your items.'
-      },
-      {
-        id: 'collapseThree',
-        title: 'Tips and Tricks',
-        content: 'Useful tips and tricks.'
-      }
-    ];
-  }
-
   isXlScreen: boolean;
   testData: string = '';
 
