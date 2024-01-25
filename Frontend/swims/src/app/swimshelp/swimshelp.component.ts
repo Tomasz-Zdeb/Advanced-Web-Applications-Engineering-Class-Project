@@ -25,7 +25,6 @@ export class SwimshelpComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.breadcrumbService.setBreadcrumbs(['Help']);
     this.fetchData();
   }
 

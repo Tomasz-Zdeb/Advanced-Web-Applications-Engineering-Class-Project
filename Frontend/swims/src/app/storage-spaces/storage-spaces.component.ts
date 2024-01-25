@@ -26,8 +26,8 @@ export class StorageSpacesComponent implements OnInit{
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  goToDetails(spaceId: string): void {
-    this.router.navigate(['/dashboard', spaceId]);
+  goToDetails(name: string): void {
+    this.router.navigate(['/dashboard', name]);
   }
   
   ngOnInit() {
@@ -39,7 +39,7 @@ export class StorageSpacesComponent implements OnInit{
     this.http.get<StorageSpace[]>(url).subscribe(
       data => {
         this.storageSpaces = data;
-        console.log('Data fetched:', this.storageSpaces);
+        //console.log('Data fetched:', this.storageSpaces);
         this.fetchZdjecia();
       },
       error => {
@@ -54,13 +54,10 @@ export class StorageSpacesComponent implements OnInit{
 
   fetchPhoto(storageSpace: StorageSpace) {
     const photoUrl = "http://localhost:8080/api/images/get/image/png/" + storageSpace.imageUUID;
-    console.warn(photoUrl);
     this.http.get(photoUrl, { responseType: 'blob' }).subscribe(
       blob => {
         const objectURL = URL.createObjectURL(blob);
-        storageSpace.imageURL = objectURL;
-        console.warn(objectURL);
-      },
+        storageSpace.imageURL = objectURL;      },
       err => console.error(err)
     );
   }

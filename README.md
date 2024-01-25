@@ -106,3 +106,5 @@ docker build -t swims-db-posgres .
 * [JPA Topic](https://www.baeldung.com/category/persistence/jpa)
 
 * [JPA Many To Many](https://www.baeldung.com/jpa-many-to-many)
+
+* [Angular: NavigationEnd Event](https://angular.io/api/router/Event)

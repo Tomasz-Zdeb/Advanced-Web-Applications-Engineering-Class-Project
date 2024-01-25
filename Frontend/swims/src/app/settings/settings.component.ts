@@ -21,7 +21,6 @@ export class SettingsComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.breadcrumbService.setBreadcrumbs(['Settings']);
     //this.fetchData();
   }
 

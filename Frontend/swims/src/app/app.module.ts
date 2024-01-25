@@ -13,6 +13,7 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SwimshelpComponent } from './swimshelp/swimshelp.component';
 import { StorageSpacesComponent } from './storage-spaces/storage-spaces.component';
+import { StorageSpaceDetailsComponent } from './storage-space-details/storage-space-details.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { StorageSpacesComponent } from './storage-spaces/storage-spaces.componen
     BreadcrumbComponent,
     SettingsComponent,
     SwimshelpComponent,
-    StorageSpacesComponent
+    StorageSpacesComponent,
+    StorageSpaceDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -14,11 +14,11 @@ VALUES
     ('guest', 'guestpass', true, 'ROLE_GUEST');
 
 INSERT INTO storage_spaces (name, description, image_uuid) VALUES
-('Main Warehouse', 'Central storage facility for various goods.', '63da9441-01c1-460c-92fa-befa6361a4b7'),
-('Metal Workshop', 'Workshop specialized in metalworking and machining.', '78be11b0-c077-43cb-ad69-0f0b7f591092'),
-('Pottery', 'Space dedicated to the art and craft of pottery.', '51f9e8a7-3316-4269-a3be-fbf0d4c56f80'),
-('Electronics Workshop', 'A workshop focused on electronics and electrical projects.', '16dc661b-98f4-41c1-a463-b409aebc1e7a'),
-('Wood Workshop', 'Workshop for woodworking and carpentry.', 'f59d4e52-898e-4d05-aafe-fcc59bc9c73c');
+('main-warehouse', 'Central storage facility for various goods.', '63da9441-01c1-460c-92fa-befa6361a4b7'),
+('metal-workshop', 'Workshop specialized in metalworking and machining.', '78be11b0-c077-43cb-ad69-0f0b7f591092'),
+('pottery', 'Space dedicated to the art and craft of pottery.', '51f9e8a7-3316-4269-a3be-fbf0d4c56f80'),
+('electronics-workshop', 'A workshop focused on electronics and electrical projects.', '16dc661b-98f4-41c1-a463-b409aebc1e7a'),
+('wood-workshop', 'Workshop for woodworking and carpentry.', 'f59d4e52-898e-4d05-aafe-fcc59bc9c73c');
 
 INSERT INTO tags (name, color) VALUES
 ('Important', '#000000'),
@@ -28,12 +28,12 @@ INSERT INTO tags (name, color) VALUES
 ('Normal', '#D3D3D3');
 
 INSERT INTO storage_spaces_to_tags (storage_space_name, tag_name) VALUES
-('Main Warehouse', 'Important'),
-('Main Warehouse', 'Primary'),
-('Metal Workshop', 'Secondary'),
-('Electronics Workshop', 'Critical'),
-('Wood Workshop', 'Critical'),
-('Wood Workshop', 'Normal');
+('main-warehouse', 'Important'),
+('main-warehouse', 'Primary'),
+('metal-workshop', 'Secondary'),
+('electronics-workshop', 'Critical'),
+('wood-workshop', 'Critical'),
+('wood-workshop', 'Normal');
 
 INSERT INTO help_accordion_contents (id, title, content) VALUES
 ('collapseOne', 'How to use Storage Spaces', 'Storage Spaces provide a versatile way to organize your items. From the intuitive user interface to advanced categorization options, learn how you can maximize efficiency. Understand how to label your items, create custom storage categories, and utilize digital tracking for easy access. Discover the benefits of remote management and how to optimize space using our smart layout tools.'),

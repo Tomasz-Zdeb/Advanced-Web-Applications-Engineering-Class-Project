@@ -17,7 +17,6 @@ export class StatisticsComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.breadcrumbService.setBreadcrumbs(['Raports']);
     this.fetchData();
   }
 

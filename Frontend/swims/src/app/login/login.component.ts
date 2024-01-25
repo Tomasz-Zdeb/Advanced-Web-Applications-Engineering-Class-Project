@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit{
         data => {
           console.log('Login successful', data);
           this.loginFailedMessage = '';
-          this.router.navigate(['/']);
+          this.router.navigate(['/dashboard']);
         },
         error => {
           console.error('Login failed', error);
@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit{
 
   ngOnInit(): void {
     if(this.authService.isLoggedIn()){
-      this.router.navigate(['/']);
+      this.router.navigate(['/dashboard']);
     }
   }
 
