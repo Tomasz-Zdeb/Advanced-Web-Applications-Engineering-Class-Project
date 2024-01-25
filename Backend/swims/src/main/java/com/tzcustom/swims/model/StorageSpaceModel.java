@@ -3,6 +3,7 @@ package com.tzcustom.swims.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -10,6 +11,7 @@ import java.util.UUID;
 
 @Entity
 @Getter
+@Setter
 @Table(name = "storage_spaces")
 public class StorageSpaceModel {
     @Id

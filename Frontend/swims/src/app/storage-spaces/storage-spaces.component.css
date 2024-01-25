@@ -15,3 +15,20 @@
 .my-custom-scrollbar::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
+
+.swims-btn-danger{
+    background-color: #333;
+    color: #ddd;
+}
+
+.swims-btn-danger:hover{
+    background-color: #555;
+}
+
+.swims-btn{
+    background-color: #999;
+}
+
+.swims-btn:hover{
+    background-color: #777;
+}

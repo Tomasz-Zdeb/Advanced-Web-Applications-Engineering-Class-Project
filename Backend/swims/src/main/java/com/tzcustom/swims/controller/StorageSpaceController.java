@@ -3,33 +3,46 @@ package com.tzcustom.swims.controller;
 import com.tzcustom.swims.model.StorageSpaceModel;
 import com.tzcustom.swims.model.dto.StorageSpaceDto;
 import com.tzcustom.swims.repository.StorageSpaceRepository;
+import com.tzcustom.swims.service.StorageSpaceService;
 import com.tzcustom.swims.utility.StorageSpaceMapper;
+import jakarta.transaction.Transactional;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api")
 public class StorageSpaceController {
-    private StorageSpaceRepository storageSpaceRepository;
 
-    StorageSpaceController(StorageSpaceRepository storageSpaceRepository){
-        this.storageSpaceRepository = storageSpaceRepository;
+    private final StorageSpaceService storageSpaceService;
+
+    StorageSpaceController(StorageSpaceRepository storageSpaceRepository, StorageSpaceService storageSpaceService){
+        this.storageSpaceService = storageSpaceService;
     }
 
     @GetMapping("/storagespaces")
     public ResponseEntity<List<StorageSpaceDto>> getPublikacje() {
-        List<StorageSpaceModel> storageSpaceModels = storageSpaceRepository.findAll();
+        List<StorageSpaceModel> storageSpaceModels = storageSpaceService.fetchStorageSpacesFromDb();
         if (storageSpaceModels == null || (storageSpaceModels.isEmpty())){
             return new ResponseEntity<List<StorageSpaceDto>>(HttpStatus.NOT_FOUND);
         }
         List<StorageSpaceDto> storageSpaceDtos = storageSpaceModels.stream().map(StorageSpaceMapper::toDto).toList();
         return ResponseEntity.ok(storageSpaceDtos);
 
+    }
+
+    @DeleteMapping("/storagespace/{name}")
+    public ResponseEntity<?> deleteStorageSpace(@PathVariable String name) {
+        Optional<StorageSpaceModel> storageSpace = storageSpaceService.fetchStorageSpaceFromDbByName(name);
+        if (storageSpace.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        storageSpaceService.deleteStorageSpaceFromDB(name);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

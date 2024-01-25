@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { StorageSpaceService } from '../storage.space.service';
 
 interface Tag {
   name: string;
@@ -24,7 +25,7 @@ export class StorageSpacesComponent implements OnInit{
   storageSpaces: StorageSpace[] = [];
 
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private router: Router, private storageSpaceService: StorageSpaceService) {}
 
   goToDetails(name: string): void {
     this.router.navigate(['/dashboard', name]);
@@ -35,30 +36,19 @@ export class StorageSpacesComponent implements OnInit{
   }
 
   fetchData() {
-    const url = 'http://localhost:8080/api/storagespaces';
-    this.http.get<StorageSpace[]>(url).subscribe(
-      data => {
-        this.storageSpaces = data;
-        //console.log('Data fetched:', this.storageSpaces);
-        this.fetchZdjecia();
-      },
-      error => {
-        console.error('Error:', error);
-      }
+    this.storageSpaceService.fetchStorageSpaces().subscribe(
+      data => this.storageSpaces = data,
+      error => console.error('Error:', error)
     );
   }
 
-  fetchZdjecia() {
-      this.storageSpaces.forEach(storageSpace => {this.fetchPhoto(storageSpace)});
-  }
-
-  fetchPhoto(storageSpace: StorageSpace) {
-    const photoUrl = "http://localhost:8080/api/images/get/image/png/" + storageSpace.imageUUID;
-    this.http.get(photoUrl, { responseType: 'blob' }).subscribe(
-      blob => {
-        const objectURL = URL.createObjectURL(blob);
-        storageSpace.imageURL = objectURL;      },
-      err => console.error(err)
+  deleteStorageSpace(name: string) {
+    this.storageSpaceService.deleteStorageSpace(name).subscribe(
+      updatedSpaces => {
+        this.storageSpaces = updatedSpaces;
+        // TUTAJ DODAĆ KOMUNIKAT O UDANYM USUNIĘCIU
+      },
+      error => console.error('Error deleting storage space:', error)
     );
   }
 }
