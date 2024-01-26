@@ -14,6 +14,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { SwimshelpComponent } from './swimshelp/swimshelp.component';
 import { StorageSpacesComponent } from './storage-spaces/storage-spaces.component';
 import { StorageSpaceDetailsComponent } from './storage-space-details/storage-space-details.component';
+import { CapitalizeAndReplacePipe } from './capitalize-and-replace.pipe';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { StorageSpaceDetailsComponent } from './storage-space-details/storage-sp
     SettingsComponent,
     SwimshelpComponent,
     StorageSpacesComponent,
-    StorageSpaceDetailsComponent
+    StorageSpaceDetailsComponent,
+    CapitalizeAndReplacePipe
   ],
   imports: [
     BrowserModule,

@@ -2,19 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, forkJoin, of } from 'rxjs';
 import { tap, catchError, switchMap } from 'rxjs/operators';
+import { StorageSpace } from './storage.space.interface';
 
-interface Tag {
-  name: string;
-  color: string;
-}
-
-interface StorageSpace {
-  name: string;
-  description: string;
-  imageUUID: string;
-  tags: Tag[];
-  imageURL?: string;
-}
 
 @Injectable({
   providedIn: 'root'

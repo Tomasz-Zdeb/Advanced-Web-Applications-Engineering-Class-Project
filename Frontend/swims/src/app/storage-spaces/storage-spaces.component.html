@@ -8,7 +8,7 @@
       </div>
       <div class="col-md-8">
         <div class="card-body">
-          <h5 class="card-title">{{space.name}}</h5>
+          <h5 class="card-title">{{space.name | capitalizeAndReplace}}</h5>
           <p class="card-text">{{space.description}}</p>
           <button class="btn swims-btn-danger me-2" (click)="deleteStorageSpace(space.name)">Delete</button>
           <button class="btn swims-btn" (click)="goToDetails(space.name)">Go To Details</button>

@@ -1,1 +1,22 @@
-<p>{{title}}</p>
+<div class="card p-3 m-4 rounded-4 row" *ngIf="storageSpace" [style.background-image]="'url(' + (storageSpace.imageURL) + ')'" style="height: calc(100vh - 150px); overflow-y: auto; border: 8px #ccc solid">
+    <div class="card col-xl-8 offset-xl-2 mt-2" style="background-color: #bbb;">
+      <div class="card-body">
+        <h4 class="card-title">{{ storageSpace.name | capitalizeAndReplace}}</h4>
+        <p class="card-text">{{ storageSpace.description }}</p>
+        <p class="card-text">
+          <small class="text-muted">Tags:</small>
+          <span class="badge ms-1 me-1" *ngFor="let tag of storageSpace.tags" [style.background-color]="tag.color">{{ tag.name }}</span>
+        </p>
+        <!-- ITEM LIST BELOW -->
+        <div class="card" style="background-color: #d8d8d8;">
+          <div class="card-body">
+            <h5 class="card-title">Items</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+
