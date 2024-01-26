@@ -1,6 +1,8 @@
 package com.tzcustom.swims.service;
 
+import com.tzcustom.swims.model.PngImageModel;
 import com.tzcustom.swims.model.StorageSpaceModel;
+import com.tzcustom.swims.repository.PngImageRepository;
 import com.tzcustom.swims.repository.StorageSpaceRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
@@ -13,9 +15,11 @@ import java.util.Optional;
 public class StorageSpaceService {
 
     private final StorageSpaceRepository storageSpaceRepository;
+    private final PngImageRepository pngImageRepository;
 
-    StorageSpaceService(StorageSpaceRepository storageSpaceRepository){
+    StorageSpaceService(StorageSpaceRepository storageSpaceRepository, PngImageRepository pngImageRepository){
         this.storageSpaceRepository = storageSpaceRepository;
+        this.pngImageRepository = pngImageRepository;
     }
 
     @Transactional
@@ -24,6 +28,8 @@ public class StorageSpaceService {
         if (storageSpace.isPresent()) {
             storageSpace.get().setTags(new HashSet<>());
             storageSpaceRepository.save(storageSpace.get());
+            Optional<PngImageModel> associatedImage =  pngImageRepository.findById(storageSpace.get().getImageUUID());
+            associatedImage.ifPresent(pngImageRepository::delete);
 
             storageSpaceRepository.delete(storageSpace.get());
         }
