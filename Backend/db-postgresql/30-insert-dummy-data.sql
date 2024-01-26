@@ -18,22 +18,37 @@ INSERT INTO storage_spaces (name, description, image_uuid) VALUES
 ('metal-workshop', 'Workshop specialized in metalworking and machining.', '78be11b0-c077-43cb-ad69-0f0b7f591092'),
 ('pottery', 'Space dedicated to the art and craft of pottery.', '51f9e8a7-3316-4269-a3be-fbf0d4c56f80'),
 ('electronics-workshop', 'A workshop focused on electronics and electrical projects.', '16dc661b-98f4-41c1-a463-b409aebc1e7a'),
-('wood-workshop', 'Workshop for woodworking and carpentry.', 'f59d4e52-898e-4d05-aafe-fcc59bc9c73c');
+('wood-workshop', 'Workshop for woodworking and carpentry.', 'f59d4e52-898e-4d05-aafe-fcc59bc9c73c'),
+('metalware-storage', 'Place for storing half ready metal components',null),
+('cars-storage', 'Small collection of rare sport cars','f13a8081-05fa-4b1d-ab2d-9d34ea3bca10'),
+('armory','Room for your guns','8ad3eef8-8ef4-4fc0-9894-53817ca427c6'),
+('small-warehouse','Tiny warehouse around the workshop',null),
+('crane-storage','Place to store all your crane accessories','42097c7b-7fb3-44c4-8020-3e4874ccbf52'),
+('guitar-center','All your guitars can be safely stored here','485ceeb2-cdd7-4ed3-bcba-3808b237c0d8'),
+('wheel-storage','Stores all the weels that customers ordered','147c383b-69a3-4bc8-94ee-4abf236db4b5'),
+('pipe-storage','Place to temporarily place pipes used for next few jobs','6f7f532e-7468-4283-9e24-566915016e2f');
 
 INSERT INTO tags (name, color) VALUES
-('Important', '#000000'),
-('Primary', '#696969'),
-('Secondary', '#808080'),
-('Critical', '#A9A9A9'),
-('Normal', '#D3D3D3');
+('important', '#000000'),
+('primary', '#696969'),
+('secondary', '#808080'),
+('critical', '#A9A9A9'),
+('normal', '#D3D3D3');
 
 INSERT INTO storage_spaces_to_tags (storage_space_name, tag_name) VALUES
-('main-warehouse', 'Important'),
-('main-warehouse', 'Primary'),
-('metal-workshop', 'Secondary'),
-('electronics-workshop', 'Critical'),
-('wood-workshop', 'Critical'),
-('wood-workshop', 'Normal');
+('main-warehouse', 'important'),
+('main-warehouse', 'primary'),
+('metal-workshop', 'secondary'),
+('electronics-workshop', 'critical'),
+('wood-workshop', 'critical');
+
+INSERT INTO storage_space_items (name, description, quantity, storage_space_name)
+VALUES 
+    ('small-box', 'A small-sized storage box', 5, 'main-warehouse'),
+    ('medium-box', 'A medium-sized storage box', 3, 'main-warehouse'),
+    ('large-box', 'A large-sized storage box', 2, 'main-warehouse'),
+    ('desk-lamp', 'An LED desk lamp', 1, 'main-warehouse'),
+    ('bookshelf', 'A wooden bookshelf', 1, 'main-warehouse');
 
 INSERT INTO help_accordion_contents (id, title, content) VALUES
 ('collapseOne', 'How to use Storage Spaces', 'Storage Spaces provide a versatile way to organize your items. From the intuitive user interface to advanced categorization options, learn how you can maximize efficiency. Understand how to label your items, create custom storage categories, and utilize digital tracking for easy access. Discover the benefits of remote management and how to optimize space using our smart layout tools.'),

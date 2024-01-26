@@ -24,6 +24,15 @@ CREATE TABLE storage_spaces (
     image_uuid UUID
 );
 
+CREATE TABLE storage_space_items (
+    name VARCHAR(255) NOT NULL,
+    description TEXT,
+    quantity INT DEFAULT 1,
+    storage_space_name VARCHAR(255) NOT NULL,
+    PRIMARY KEY (name, storage_space_name),
+    FOREIGN KEY (storage_space_name) REFERENCES storage_spaces(name)
+);
+
 CREATE TABLE tags (
     name VARCHAR(255) PRIMARY KEY,
     color VARCHAR(7) NOT NULL
