@@ -8,9 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.http.ResponseEntity;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -24,6 +21,7 @@ public class ImageController {
         this.pngImageRepository = pngImageRepository;
     }
 
+    @Operation(summary = "Get a PNG image", description = "Returns a PNG image of given UUID")
     @GetMapping(value = "/get/image/png/{uuid}", produces = MediaType.IMAGE_PNG_VALUE)
     public ResponseEntity<byte[]> getPngImage(@PathVariable UUID uuid) {
         Optional<PngImageModel> returnedImage = pngImageRepository.findById(uuid);
@@ -32,7 +30,7 @@ public class ImageController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    //@Operation(summary = "Upload a PNG image", description = "Uploads a new PNG image to the server")
+    @Operation(summary = "Upload a PNG image", description = "Uploads a new PNG image to the server")
     @PostMapping(path = "/upload/image/png", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<?> uploadPngImage(@RequestParam("file") MultipartFile file){
         try {
@@ -48,6 +46,7 @@ public class ImageController {
         }
     }
 
+    @Operation(summary = "Delete a PNG image", description = "Deletes a PNG image with given UUID completely - including DB")
     @DeleteMapping(value = "/delete/image/png/{uuid}")
     public ResponseEntity<?> deletePngImage(@PathVariable UUID uuid) {
         return pngImageRepository.findById(uuid)
