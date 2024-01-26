@@ -28,7 +28,12 @@ export class StorageSpaceService {
     return this.http.get<StorageSpace[]>(`${this.apiUrl}/storagespaces`).pipe(
       switchMap(storageSpaces => {
         const fetchImages$ = storageSpaces.map(ss => this.fetchPhoto(ss.imageUUID).pipe(
-          tap(blob => ss.imageURL = URL.createObjectURL(blob))
+          tap(blob => ss.imageURL = URL.createObjectURL(blob)),
+          catchError(error => {
+            console.error('Fetching image of ID: ${ss.imageUUID} was unsuccesfull - ${error.message}');
+            ss.imageURL = '../assets/images/image_not_found.png';
+            return of(null);
+          })
         ));
         return forkJoin(fetchImages$).pipe(
           switchMap(() => [storageSpaces])
