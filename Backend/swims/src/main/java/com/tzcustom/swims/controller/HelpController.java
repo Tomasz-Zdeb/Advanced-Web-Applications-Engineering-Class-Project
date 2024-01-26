@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/help")
 public class HelpController {
     private final HelpAccordionItemRepository helpAccordionItemRepository;
 
@@ -23,7 +23,7 @@ public class HelpController {
         this.helpAccordionItemRepository = helpAccordionItemRepository;
     }
 
-    @GetMapping("/help/accordionitems")
+    @GetMapping("/accordionitems")
     public ResponseEntity<List<HelpAccordionItemModel>> getHelpAccordionItems() {
         List<HelpAccordionItemModel> helpAccordionItemModels = helpAccordionItemRepository.findAll();
         if (helpAccordionItemModels == null || (helpAccordionItemModels.isEmpty())){
