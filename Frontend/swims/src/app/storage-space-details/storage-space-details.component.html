@@ -3,10 +3,10 @@
       <div class="card-body">
         <h4 class="card-title">{{ storageSpace.name | capitalizeAndReplace}}</h4>
         <p class="card-text">{{ storageSpace.description }}</p>
-        <p class="card-text">
-          <small class="text-muted">Tags:</small>
-          <span class="badge ms-1 me-1" *ngFor="let tag of storageSpace.tags" [style.background-color]="tag.color">{{ tag.name }}</span>
-        </p>
+        <div class="card-text mt-2 mb-3" *ngIf="storageSpace.tags.length > 0">
+          <small class="text-muted">🏷</small>
+          <span class="ms-1 me-1 pb-1 ps-3 pe-3 rounded-4" *ngFor="let tag of storageSpace.tags" style="border: 1.5px #888 solid; color: #888;">{{ tag.name }}</span>
+        </div>
         <!-- ITEM LIST BELOW -->
         <div class="card" style="background-color: #d8d8d8;">
           <div class="card-body">

@@ -12,6 +12,10 @@
           <p class="card-text">{{space.description}}</p>
           <button class="btn swims-btn-danger me-2" (click)="deleteStorageSpace(space.name)">Delete</button>
           <button class="btn swims-btn" (click)="goToDetails(space.name)">Go To Details</button>
+          <div class="card-text mt-5" *ngIf="space.tags.length > 0">
+            <small class="text-muted">🏷</small>
+            <span class="ms-1 me-1 pb-1 ps-3 pe-3 rounded-4" *ngFor="let tag of space.tags" style="border: 1.5px #888 solid; color: #888;">{{ tag.name }}</span>
+          </div>
         </div>
       </div>
     </div>
