@@ -1,7 +1,7 @@
 import { Component, OnInit, HostListener} from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { StorageSpaceService } from '../storage.space.service';
+import { StorageSpaceService } from '../../../services/storage.space.service';
 
 interface Tag {
   name: string;

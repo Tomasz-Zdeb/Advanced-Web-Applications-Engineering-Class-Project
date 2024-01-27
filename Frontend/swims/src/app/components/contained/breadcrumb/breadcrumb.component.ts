@@ -1,6 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { BreadcrumbService } from '../breadcrumb.service';
+import { BreadcrumbService } from '../../../services/breadcrumb.service';
 
 @Component({
   selector: 'swims-breadcrumb',

@@ -1,9 +1,9 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { StorageSpace } from '../storage.space.interface';
-import { StorageSpaceService } from '../storage.space.service';
+import { StorageSpace } from '../../../interfaces/storage.space.interface';
+import { StorageSpaceService } from '../../../services/storage.space.service';
 import { ActivatedRoute } from '@angular/router';
-import { ItemService } from '../item.service';
-import { Item } from '../item.interface';
+import { ItemService } from '../../../services/item.service';
+import { Item } from '../../../interfaces/item.interface';
 
 @Component({
   selector: 'swims-storage-space-details',

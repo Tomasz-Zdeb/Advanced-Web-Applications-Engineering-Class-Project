@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, forkJoin, of } from 'rxjs';
 import { tap, catchError, switchMap } from 'rxjs/operators';
-import { StorageSpace } from './storage.space.interface';
+import { StorageSpace } from '../interfaces/storage.space.interface';
 
 
 @Injectable({

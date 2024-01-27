@@ -1,6 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BreadcrumbService } from '../breadcrumb.service';
+import { BreadcrumbService } from '../../../services/breadcrumb.service';
 
 @Component({
   selector: 'swims-dashboard',

@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { StatisticsComponent } from './statistics/statistics.component';
-import { SettingsComponent } from './settings/settings.component';
-import { SwimshelpComponent } from './swimshelp/swimshelp.component';
-import { StorageSpacesComponent } from './storage-spaces/storage-spaces.component';
-import { StorageSpaceDetailsComponent } from './storage-space-details/storage-space-details.component';
+import { LoginComponent } from '../components/pages/login/login.component';
+import { DashboardComponent } from '../components/pages/dashboard/dashboard.component';
+import { StatisticsComponent } from '../components/pages/statistics/statistics.component';
+import { SettingsComponent } from '../components/pages/settings/settings.component';
+import { SwimshelpComponent } from '../components/pages/swimshelp/swimshelp.component';
+import { StorageSpacesComponent } from '../components/contained/storage-spaces/storage-spaces.component';
+import { StorageSpaceDetailsComponent } from '../components/contained/storage-space-details/storage-space-details.component';
 
 const routes: Routes = [
   { path: 'dashboard',
