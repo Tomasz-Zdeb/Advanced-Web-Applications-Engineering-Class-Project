@@ -3,16 +3,17 @@
 <div class="container mt-5 pt-3 rounded-4" style="max-height: calc(100vh - 250px); overflow-y: auto; background-color: #777;">
   <div *ngFor="let space of storageSpaces" class="card mb-3 rounded-4 ms-2 me-2" style="background-color:  #d8d8d8 ;">
     <div class="row g-0">
-      <div class="col-md-4">
+      <div class="col-xl-5">
         <img src="{{space.imageURL}}" class="img-fluid border border-4 rounded-4" alt="📦Storage Space Image 📦">
       </div>
-      <div class="col-md-8">
+      <div class="col-xl-7">
         <div class="card-body">
           <h5 class="card-title">{{space.name | capitalizeAndReplace}}</h5>
           <p class="card-text">{{space.description}}</p>
           <button class="btn swims-btn-danger me-2" (click)="deleteStorageSpace(space.name)">Delete</button>
           <button class="btn swims-btn" (click)="goToDetails(space.name)">Go To Details</button>
-          <div class="card-text mt-5" *ngIf="space.tags.length > 0">
+          <hr>
+          <div class="card-text mt-3" *ngIf="space.tags.length > 0">
             <small class="text-muted">🏷</small>
             <span class="ms-1 me-1 pb-1 ps-3 pe-3 rounded-4" *ngFor="let tag of space.tags" style="border: 1.5px #888 solid; color: #888;">{{ tag.name }}</span>
           </div>
