@@ -1,0 +1,10 @@
+.breadcrumb-item > a{
+    color: #666;
+    font-style: normal;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.breadcrumb-item > a:hover{
+    color: #777;
+}
