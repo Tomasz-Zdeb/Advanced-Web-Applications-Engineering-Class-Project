@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener} from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { StorageSpaceService } from '../storage.space.service';
@@ -23,7 +23,22 @@ interface StorageSpace {
 })
 export class StorageSpacesComponent implements OnInit{
   storageSpaces: StorageSpace[] = [];
+  dynamicContainerStyle = this.getDynamicContainerStyle(window.innerWidth);
 
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.dynamicContainerStyle = this.getDynamicContainerStyle(event.target.innerWidth);
+  }
+
+  getDynamicContainerStyle(width: number) {
+    const xlBreakpoint = 1200;
+    if (width > xlBreakpoint) {
+      return { 'overflow-y': 'auto', 'max-height': 'calc(100% - 260px)'};
+    } else {
+
+      return { 'overflow-y': 'initial' };
+    }
+  }
 
   constructor(private router: Router, private storageSpaceService: StorageSpaceService) {}
 
