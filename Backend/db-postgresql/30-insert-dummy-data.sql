@@ -29,11 +29,11 @@ INSERT INTO storage_spaces (name, description, image_uuid) VALUES
 ('pipe-storage','Place to temporarily place pipes used for next few jobs','6f7f532e-7468-4283-9e24-566915016e2f');
 
 INSERT INTO tags (name, color) VALUES
-('important', '#000000'),
-('primary', '#696969'),
-('secondary', '#808080'),
-('critical', '#A9A9A9'),
-('normal', '#D3D3D3');
+('important', '#eeeeee'),
+('primary', '#dddddd'),
+('secondary', '#dddddd'),
+('critical', '#eeeeee'),
+('normal', '#eeeeee');
 
 INSERT INTO storage_spaces_to_tags (storage_space_name, tag_name) VALUES
 ('main-warehouse', 'important'),
