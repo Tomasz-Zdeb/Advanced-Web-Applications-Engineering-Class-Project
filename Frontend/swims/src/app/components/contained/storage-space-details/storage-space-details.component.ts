@@ -15,6 +15,15 @@ export class StorageSpaceDetailsComponent implements OnInit{
   searchName: string = '';
   items: Item[] = [];
   public myStyles: any;
+  isCreatingItem = false;
+  newItem: Item = {
+      name: '',
+      description: '',
+      quantity: 1,
+      storageSpaceName: ''
+  };
+  itemCreationFailedMessage: string = '';
+  itemCreationSuccesfullMessage: string = '';
 
   constructor(private storageSpaceService: StorageSpaceService, private route: ActivatedRoute, private itemService: ItemService){
     this.updateStyles(window.innerWidth);
@@ -57,7 +66,10 @@ export class StorageSpaceDetailsComponent implements OnInit{
       data => this.storageSpace = data.find(space => space.name === this.searchName),
       error => console.error('Error:', error)
     );
-    // Fetch Items
+    this.fetchItems();
+  }
+
+  fetchItems(){
     this.itemService.getByStorageSpaceName('main-warehouse').subscribe(
       data => {
         this.items = data;
@@ -67,4 +79,51 @@ export class StorageSpaceDetailsComponent implements OnInit{
       }
     );
   }
+
+  deleteItem(itemName: string, storageSpaceName: string): void {
+    this.itemService.setStorageSpaceName(storageSpaceName);
+    this.itemService.deleteItem(itemName, storageSpaceName).subscribe(
+      (response: any) => {
+        this.fetchItems();
+      },
+      error => {
+        console.error('There was an error!', error);
+      }
+    );
+  }
+
+  showCreateItemForm() {
+    this.isCreatingItem = true;
+    this.newItem = {
+        name: '',
+        description: '',
+        quantity: 1,
+        storageSpaceName: this.storageSpace?.name ? this.storageSpace?.name : ''
+    }
+  }
+
+  cancelCreation() {
+    this.isCreatingItem = false;
+  }
+
+  createItem(){
+    console.warn(this.newItem);
+    this.itemService.createItem(this.newItem)
+      .subscribe(
+        response => {
+          console.log('Item created', response);
+          this.itemCreationSuccesfullMessage = 'item: ' + this.newItem.name + ' succesfully created! Want to create next item? Go on!';
+          setTimeout(() => this.itemCreationSuccesfullMessage = "",5000);
+          this.fetchItems();
+          this.showCreateItemForm();
+        },
+        error => {
+          console.error('Error creating item', error);
+          this.itemCreationFailedMessage = 'Item creation error, please verify input values';
+          setTimeout(() => this.itemCreationFailedMessage = "",3000);
+        }
+      );
+  }
+
+  
 }

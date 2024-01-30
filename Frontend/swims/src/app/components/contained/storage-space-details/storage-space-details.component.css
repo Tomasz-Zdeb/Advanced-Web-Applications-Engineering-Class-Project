@@ -1,0 +1,21 @@
+.swims-btn-danger{
+    background-color: #333;
+    color: #ddd;
+}
+
+.swims-btn-danger:hover{
+    background-color: #555;
+}
+
+.swims-btn{
+    background-color: #999;
+}
+
+.swims-btn:hover{
+    background-color: #777;
+}
+
+.form-floating .form-control:focus {
+    border-color: #999;
+    box-shadow: 0 0 0.2rem 0.2rem #999;
+}
