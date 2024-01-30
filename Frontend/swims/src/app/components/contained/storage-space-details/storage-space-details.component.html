@@ -53,20 +53,33 @@
             <button type="submit" class="btn swims-btn">Create Item</button>
             <button type="button" class="btn swims-btn ms-2" (click)="cancelCreation()">Cancel</button>
           </form>
-
-
         </div>
 
         <div class="mt-1" *ngFor="let item of items">
           <div class="card h-100" style="background-color: #eee">
             <div class="card-body">
-              <h5 class="card-title">{{ item.name | capitalizeAndReplace}}</h5>
-              <p class="card-text">{{ item.description }}</p>
-              <p class="card-text"><small class="text-muted">Quantity: {{ item.quantity }}</small></p>
-              <button type="button" class="btn swims-btn-danger" (click)="deleteItem(item.name, storageSpace.name)">Delete</button>
+              
+              <div class="row">
+                <div class="col-md-3">
+                  <h5 class="card-title">{{ item.name | capitalizeAndReplace }}</h5>
+                </div>
+                <div class="col-md-9">
+                  <p class="card-text">{{ item.description }}</p>
+                </div>
+              </div>
+        
+              <div class="row">
+                <div class="col-md-9">
+                  <p class="card-text"><small class="text-muted">Quantity: {{ item.quantity }}</small></p>
+                </div>
+                <div class="col-md-3 text-end">
+                  <button type="button" class="btn swims-btn-danger" (click)="deleteItem(item.name, storageSpace.name)">Delete</button>
+                </div>
+              </div>
             </div>
           </div>
-      </div>
+        </div>
+        
     </div>
   </div>
 </div>

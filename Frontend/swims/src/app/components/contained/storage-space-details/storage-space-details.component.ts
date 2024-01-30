@@ -110,7 +110,7 @@ export class StorageSpaceDetailsComponent implements OnInit{
     console.warn(this.newItem);
     this.itemService.createItem(this.newItem)
       .subscribe(
-        response => {
+        (response: any) => {
           console.log('Item created', response);
           this.itemCreationSuccesfullMessage = 'item: ' + this.newItem.name + ' succesfully created! Want to create next item? Go on!';
           setTimeout(() => this.itemCreationSuccesfullMessage = "",5000);
