@@ -2,6 +2,7 @@ package com.tzcustom.swims.service;
 
 import com.tzcustom.swims.model.ItemModel;
 import com.tzcustom.swims.repository.ItemRepository;
+import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
@@ -29,6 +30,10 @@ public class ItemService {
     }
 
     public ItemModel createItem(ItemModel itemModel) {
+        Optional<ItemModel> existingItem = itemRepository.findByNameAndStorageSpaceName(itemModel.getName(),itemModel.getStorageSpaceName());
+        if(existingItem.isPresent()){
+            throw new EntityExistsException("Item" + itemModel.getName() + " already exists in storage space: " + itemModel.getStorageSpaceName());
+        }
         return itemRepository.save(itemModel);
     }
 

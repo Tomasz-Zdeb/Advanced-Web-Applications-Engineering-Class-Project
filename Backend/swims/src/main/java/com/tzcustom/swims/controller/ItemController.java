@@ -9,6 +9,7 @@ import com.tzcustom.swims.service.ItemService;
 import com.tzcustom.swims.service.StorageSpaceService;
 import com.tzcustom.swims.utility.ItemMapper;
 import io.swagger.v3.oas.annotations.Operation;
+import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -74,7 +75,10 @@ public class ItemController {
         try {
             ItemModel newItem = itemService.createItem(itemModel);
             return ResponseEntity.status(HttpStatus.CREATED).body(ItemMapper.toDto(newItem));
-        } catch (Exception e) {
+        } catch (EntityExistsException e){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Item already exists");
+        }
+        catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error creating item");
         }
     }
