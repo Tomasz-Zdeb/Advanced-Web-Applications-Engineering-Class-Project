@@ -2,6 +2,7 @@ package com.tzcustom.swims.controller;
 
 import com.tzcustom.swims.model.ItemModel;
 import com.tzcustom.swims.model.PngImageModel;
+import com.tzcustom.swims.model.dto.ItemDeleteDto;
 import com.tzcustom.swims.model.dto.ItemDto;
 import com.tzcustom.swims.repository.ItemRepository;
 import com.tzcustom.swims.service.ItemService;
@@ -54,7 +55,10 @@ public class ItemController {
         } catch(Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
-        return ResponseEntity.ok("Item: (" + name + "," + storageSpaceName + ") Deleted Successfully");
+        ItemDeleteDto itemDeleteDto = new ItemDeleteDto();
+        itemDeleteDto.setName(name);
+        itemDeleteDto.setStorageSpaceName(storageSpaceName);
+        return ResponseEntity.ok(itemDeleteDto);
     }
 
     @Operation(summary = "Create a new item",
@@ -65,7 +69,7 @@ public class ItemController {
             itemModel.setQuantity(1);
         }
         if(storageSpaceService.fetchStorageSpaceFromDbByName(itemModel.getStorageSpaceName()).isEmpty()){
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Storage Space with name: "+ itemModel.getStorageSpaceName() +" does not exist");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Storage Space with name: " + itemModel.getStorageSpaceName() + " does not exist");
         }
         try {
             ItemModel newItem = itemService.createItem(itemModel);
