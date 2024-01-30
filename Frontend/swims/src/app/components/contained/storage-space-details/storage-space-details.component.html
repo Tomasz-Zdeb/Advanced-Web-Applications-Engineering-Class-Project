@@ -67,22 +67,40 @@
                   <h5 class="card-title">{{ item.name | capitalizeAndReplace }}</h5>
                 </div>
                 <div class="col-md-9">
-                  <p class="card-text">{{ item.description }}</p>
+                  <p class="card-text" *ngIf="!item.isEditing" style="color: #555">{{ item.description }}</p>
                 </div>
               </div>
         
               <div class="row">
-                <div class="col-md-9">
-                  <p class="card-text"><small class="text-muted">Quantity: {{ item.quantity }}</small></p>
+                <div class="col-md-9 form-floating">
+                  <p class="card-text"><small class="text-muted" *ngIf="!item.isEditing">Quantity: {{ item.quantity }}</small></p>
+                  <input type="number" class="form-control mb-2" [(ngModel)]="item.quantity" *ngIf="item.isEditing" required min="1">
+                  <textarea class="form-control" [(ngModel)]="item.description" *ngIf="item.isEditing" style="resize:none"></textarea>
                 </div>
                 <div class="col-md-3 text-end">
-                  <button type="button" class="btn swims-btn-danger" (click)="deleteItem(item.name, storageSpace.name)">Delete</button>
+                  <button type="button" class="btn swims-btn" (click)="startEditing(item)" *ngIf="!item.isEditing">Update</button>
+                  <button type="button" class="btn swims-btn" (click)="submitUpdate(item)" *ngIf="item.isEditing">Submit</button>
+                  <button type="button" class="btn swims-btn-danger ms-2" (click)="deleteItem(item.name, storageSpace.name)">Delete</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
         
+    </div>
+  </div>
+</div>
+
+<div style="position: fixed; z-index: 1050;" class="end-0 top-0">
+  <div *ngIf="showSuccessToast" class="toast" style="min-width: 200px;" [class.show]="showSuccessToast">
+    <div class="toast-body">
+      Item Succesfully Updated!
+    </div>
+  </div>
+
+  <div *ngIf="showFailureToast" class="toast" style="min-width: 200px;" [class.show]="showFailureToast">
+    <div class="toast-body" style="background-color: #f66;">
+      Item Update Failed!
     </div>
   </div>
 </div>

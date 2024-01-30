@@ -25,6 +25,8 @@ export class StorageSpaceDetailsComponent implements OnInit{
   itemCreationFailedMessage: string = '';
   itemCreationSuccesfullMessage: string = '';
   namePattern = /^[^\s](.*[^\s])?$/;
+  showSuccessToast = false;
+  showFailureToast = false;
 
   constructor(private storageSpaceService: StorageSpaceService, private route: ActivatedRoute, private itemService: ItemService){
     this.updateStyles(window.innerWidth);
@@ -73,7 +75,7 @@ export class StorageSpaceDetailsComponent implements OnInit{
   fetchItems(){
     this.itemService.getByStorageSpaceName('main-warehouse').subscribe(
       data => {
-        this.items = data;
+        this.items = data.map(item => ({ ...item, isEditing: false }));
       },
       error => {
         console.error('There was an error!', error);
@@ -126,5 +128,25 @@ export class StorageSpaceDetailsComponent implements OnInit{
       );
   }
 
-  
+  startEditing(item: Item) {
+    item.isEditing = true;
+  }
+
+  submitUpdate(item: Item) {
+    item.storageSpaceName = this.storageSpace?.name;
+    this.itemService.updateItem(item).subscribe(
+      (response: any) => {
+        console.log('Item updated', response);
+        item.isEditing = false;
+        this.showSuccessToast = true;
+        setTimeout(() => this.showSuccessToast = false, 3000);
+      },
+      (error: any ) => {
+        this.fetchData();
+        console.error('Error updating item', error)
+        this.showFailureToast = true;
+        setTimeout(() => this.showFailureToast = false, 3000);
+      }
+    );
+  }
 }

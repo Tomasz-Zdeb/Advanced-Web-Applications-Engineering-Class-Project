@@ -27,7 +27,7 @@ export class ItemService {
     let params = new HttpParams()
       .set('name', name)
       .set('storage_space_name', storageSpaceName);
-
+ 
     // Send the delete request with the query parameters
     return this.http.delete('http://localhost:8080/api/items/delete/item', { params }).pipe(
       switchMap(() => this.getByStorageSpaceName(storageSpaceName)),
@@ -43,11 +43,18 @@ export class ItemService {
 
   createItem(item: Item) {
     item.name = this.sanitizeItemName(item.name);
+    delete item.isEditing;
     return this.http.post('http://localhost:8080/api/items/create/item', item );
   }
 
   private sanitizeItemName(name: string): string {
     return name.toLowerCase().replace(/\s+/g, '-');
+}
+
+updateItem(item: Item) {
+  delete item.isEditing;
+  console.warn(item);
+  return this.http.put('http://localhost:8080/api/items/update/item', item);
 }
 
 }
