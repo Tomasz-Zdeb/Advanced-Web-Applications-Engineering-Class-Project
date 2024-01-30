@@ -24,6 +24,7 @@ export class StorageSpaceDetailsComponent implements OnInit{
   };
   itemCreationFailedMessage: string = '';
   itemCreationSuccesfullMessage: string = '';
+  namePattern = /^[^\s](.*[^\s])?$/;
 
   constructor(private storageSpaceService: StorageSpaceService, private route: ActivatedRoute, private itemService: ItemService){
     this.updateStyles(window.innerWidth);
