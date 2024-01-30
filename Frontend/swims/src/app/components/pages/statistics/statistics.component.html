@@ -4,10 +4,109 @@
     </div>
     <div class="flex-grow-1" style="background-color: #ababab;">
         <swims-breadcrumb></swims-breadcrumb>
-        <form (submit)="uploadImage()">
-            <input type="file" (change)="onFileSelected($event)" accept="image/png">
-            <button type="submit">Upload</button>
-          </form>
-          <p *ngIf="message">{{ message }}</p>
+        <div class="container mt-4">
+            <div class="container mt-4">
+                <!-- Header for Reports Section -->
+                <div class="row mb-4">
+                    <div class="col">
+                        <h2>Storage Space's Report</h2>
+                    </div>
+                </div>
+            
+                <!-- Summary Cards -->
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body" style="background-color: #eee;">
+                                <h5 class="card-title">Total Items</h5>
+                                <p class="card-text">1,731</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body" style="background-color: #eee;">
+                                <h5 class="card-title">Average Items Per Storage Space</h5>
+                                <p class="card-text">283</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Report Table -->
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body" style="background-color: #eee;">
+                                <h5 class="card-title">Sales Details</h5>
+                                <table class="table" style="background-color: #eee;">
+                                    <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Storage Space Name</th>
+                                <th scope="col">Number of Items</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Main Warehouse</td>
+                                <td>150</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Secondary Storage</td>
+                                <td>75</td>
+                            </tr>
+                            <!-- Additional mock rows -->
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>East Wing</td>
+                                <td>200</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4</th>
+                                <td>West Wing</td>
+                                <td>120</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">5</th>
+                                <td>North Annex</td>
+                                <td>95</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">6</th>
+                                <td>South Annex</td>
+                                <td>110</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">7</th>
+                                <td>Central Facility</td>
+                                <td>180</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">8</th>
+                                <td>Offsite Storage 1</td>
+                                <td>65</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">9</th>
+                                <td>Offsite Storage 2</td>
+                                <td>80</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">10</th>
+                                <td>Specialized Unit</td>
+                                <td>50</td>
+                            </tr>
+                        </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>        
     </div>
 </div>
