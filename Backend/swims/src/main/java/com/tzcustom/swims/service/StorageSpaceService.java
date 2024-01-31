@@ -38,8 +38,11 @@ public class StorageSpaceService {
         if (storageSpace.isPresent()) {
             storageSpace.get().setTags(new HashSet<>());
             storageSpaceRepository.save(storageSpace.get());
-            Optional<PngImageModel> associatedImage =  pngImageRepository.findById(storageSpace.get().getImageUUID());
-            associatedImage.ifPresent(pngImageRepository::delete);
+            if(storageSpace.get().getImageUUID() != null)
+            {
+                Optional<PngImageModel> associatedImage =  pngImageRepository.findById(storageSpace.get().getImageUUID());
+                associatedImage.ifPresent(pngImageRepository::delete);
+            }
             itemService.deleteByStorageSpaceName(name);
             storageSpaceRepository.delete(storageSpace.get());
         }
