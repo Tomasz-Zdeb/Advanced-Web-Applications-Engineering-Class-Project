@@ -15,7 +15,7 @@ const routes: Routes = [
       { path: '', component: StorageSpacesComponent, pathMatch: 'full'  },
       { path: ':name', component: StorageSpaceDetailsComponent}
   ]},
-  { path: 'raports', component: StatisticsComponent, pathMatch: 'full'},
+  { path: 'reports', component: StatisticsComponent, pathMatch: 'full'},
   { path: 'login', component: LoginComponent, pathMatch: 'full' },
   { path: 'settings', component: SettingsComponent, pathMatch: 'full' },
   { path: 'help', component: SwimshelpComponent, pathMatch: 'full' },
