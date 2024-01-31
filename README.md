@@ -7,7 +7,7 @@ Activity Project for Advanced Web Applications Engineering class in 2023/2024 wi
 Application name: **SWIMS - Simple Web Inventory Management System**
 
 <div style="text-align: center;">
-    <img src="./Resources/swims.gif" style="width: 600px; height: auto;">
+    <img src="./Resources/swims.gif" style="width: 800px; height: auto;">
 </div>
 
 ## Repository
@@ -30,12 +30,22 @@ main:          +-------+-------+-------+---[...]-Finished Project---+
 
 **SWIMS** supports both Swagger and Swagger UI.
 
-Default routes are:
+Default routes to access Swagger UI are:
 
 - [/api/v3/api-docs](http://localhost:8080/v3/api-docs)
 - [/api/swagger-ui/index.html#/](http://localhost:8080/swagger-ui/index.html#/)
 
+### API Routues
 
+<div style="text-align: center;">
+    <img src="./Resources/swagger-routes.png" style="width: 800px; height: auto;">
+</div>
+
+### API Schemas
+
+<div style="text-align: center;">
+    <img src="./Resources/swagger-schemas.png" style="width: 800px; height: auto;">
+</div>
 
 ## Frontend
 
@@ -87,7 +97,15 @@ ng new swims --routing --skip-git --skip-tests --style css
 
 ### Database - PostgreSQL
 
-#### Docker Image Build
+#### ERD
+
+<div style="text-align: center;">
+    <img src="./Resources/erd.png" style="width: 800px; height: auto;">
+</div>
+
+#### DB Docker Image
+
+Initially project intended to deploy all components in docker images, although database is the only fully tested image. Since it's development version, database contains some dummy data for presentation purposes.
 
 ```bash
 docker build -t swims-db-posgres .
