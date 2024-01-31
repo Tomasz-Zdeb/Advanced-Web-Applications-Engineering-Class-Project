@@ -1,5 +1,6 @@
 package com.tzcustom.swims.service;
 
+import com.tzcustom.swims.model.ItemModel;
 import com.tzcustom.swims.model.PngImageModel;
 import com.tzcustom.swims.model.StorageSpaceModel;
 import com.tzcustom.swims.model.dto.StorageSpaceStatisticDto;
@@ -62,7 +63,9 @@ public class StorageSpaceService {
                 .map((storageSpace) -> {
                     StorageSpaceStatisticDto tmpStatDto = new StorageSpaceStatisticDto();
                     tmpStatDto.setName(storageSpace.getName());
-                    tmpStatDto.setItemNumber(itemService.findByStorageSpaceName(tmpStatDto.getName()).size());
+                    tmpStatDto.setItemNumber(itemService.findByStorageSpaceName(tmpStatDto.getName()).stream()
+                            .mapToInt(ItemModel::getQuantity)
+                            .sum());
                     return tmpStatDto;
                 })
                 .collect(Collectors.toList());
