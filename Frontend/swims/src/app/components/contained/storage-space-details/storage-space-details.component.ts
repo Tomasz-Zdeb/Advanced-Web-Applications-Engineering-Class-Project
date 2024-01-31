@@ -52,19 +52,16 @@ export class StorageSpaceDetailsComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    // Fetches storage space name from the route
     this.route.paramMap.subscribe(params => {
       const param = params.get('name');
       if (param) {
           this.searchName = param;
       }
   });
-  // Fetches data using storage space name
   this.fetchData();
   }
 
   fetchData() {
-    // Fetch storage space details
     this.storageSpaceService.fetchStorageSpaces().subscribe(
       data => this.storageSpace = data.find(space => space.name === this.searchName),
       error => console.error('Error:', error)
@@ -73,7 +70,7 @@ export class StorageSpaceDetailsComponent implements OnInit{
   }
 
   fetchItems(){
-    this.itemService.getByStorageSpaceName('main-warehouse').subscribe(
+    this.itemService.getByStorageSpaceName(this.searchName).subscribe(
       data => {
         this.items = data.map(item => ({ ...item, isEditing: false }));
       },
