@@ -6,6 +6,10 @@ Activity Project for Advanced Web Applications Engineering class in 2023/2024 wi
 
 Application name: **SWIMS - Simple Web Inventory Management System**
 
+<div style="text-align: center;">
+    <img src="./Resources/swims.gif" style="width: 600px; height: auto;">
+</div>
+
 ## Repository
 
 According to the guidelines provided by the teacher both backend and frontend projects are stored in single repository.
