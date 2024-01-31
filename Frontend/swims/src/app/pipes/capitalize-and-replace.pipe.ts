@@ -10,7 +10,6 @@ export class CapitalizeAndReplacePipe implements PipeTransform {
       return value;
     }
 
-    // Replace dashes with spaces and capitalize each word
     return value.split('-').map(word => 
       word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
     ).join(' ');

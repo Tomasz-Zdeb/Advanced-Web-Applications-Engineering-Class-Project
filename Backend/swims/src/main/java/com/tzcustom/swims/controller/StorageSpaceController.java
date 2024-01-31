@@ -6,15 +6,13 @@ import com.tzcustom.swims.model.dto.StorageSpaceStatisticDto;
 import com.tzcustom.swims.repository.StorageSpaceRepository;
 import com.tzcustom.swims.service.StorageSpaceService;
 import com.tzcustom.swims.utility.StorageSpaceMapper;
-import jakarta.transaction.Transactional;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api")
@@ -26,6 +24,7 @@ public class StorageSpaceController {
         this.storageSpaceService = storageSpaceService;
     }
 
+    @Operation(summary = "Fetch storage spaces", description = "Returns a list of storage spaces")
     @GetMapping("/storagespaces")
     public ResponseEntity<List<StorageSpaceDto>> getStorageSpaces() {
         List<StorageSpaceModel> storageSpaceModels = storageSpaceService.fetchStorageSpacesFromDb();
@@ -37,6 +36,7 @@ public class StorageSpaceController {
 
     }
 
+    @Operation(summary = "Delete a storage space", description = "Deletes a storage space of given name")
     @DeleteMapping("/storagespace/{name}")
     public ResponseEntity<?> deleteStorageSpace(@PathVariable String name) {
         Optional<StorageSpaceModel> storageSpace = storageSpaceService.fetchStorageSpaceFromDbByName(name);
@@ -47,6 +47,7 @@ public class StorageSpaceController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @Operation(summary = "Fetch storage spaces stats", description = "Returns a list of statistics objects for each storage space")
     @GetMapping("/storagespaces/stats")
     public ResponseEntity<List<StorageSpaceStatisticDto>> getStorageSpaceStatistics(){
         List<StorageSpaceStatisticDto> storageSpaceStatistics = storageSpaceService.getStorageSpaceStatistics();

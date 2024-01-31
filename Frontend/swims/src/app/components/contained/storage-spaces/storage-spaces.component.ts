@@ -61,7 +61,6 @@ export class StorageSpacesComponent implements OnInit{
     this.storageSpaceService.deleteStorageSpace(name).subscribe(
       updatedSpaces => {
         this.storageSpaces = updatedSpaces;
-        // TUTAJ DODAĆ KOMUNIKAT O UDANYM USUNIĘCIU
       },
       error => console.error('Error deleting storage space:', error)
     );

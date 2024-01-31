@@ -23,12 +23,10 @@ export class ItemService {
   }
 
   deleteItem(name: string, storageSpaceName: string) {
-    // Create HTTP Params
     let params = new HttpParams()
       .set('name', name)
       .set('storage_space_name', storageSpaceName);
  
-    // Send the delete request with the query parameters
     return this.http.delete('http://localhost:8080/api/items/delete/item', { params }).pipe(
       switchMap(() => this.getByStorageSpaceName(storageSpaceName)),
       catchError(this.handleError<Item>('deleteItem')));

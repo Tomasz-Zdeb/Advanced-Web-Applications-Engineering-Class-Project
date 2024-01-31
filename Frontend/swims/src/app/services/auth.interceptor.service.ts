@@ -11,11 +11,9 @@ export class AuthInterceptor implements HttpInterceptor {
   constructor(private authService: AuthService, private router: Router) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    // Retrieve the stored token (if any)
     const authToken = this.authService.getAuthToken();
     
     let authReq = req;
-    // Attach the token if it exists
     if (authToken) {
       authReq = req.clone({
         headers: req.headers.set('Authorization', `Basic ${authToken}`)
@@ -25,7 +23,6 @@ export class AuthInterceptor implements HttpInterceptor {
     return next.handle(authReq).pipe(
       catchError((error: HttpErrorResponse) => {
         if (error.status === 401) {
-          // Redirect to the login page
           localStorage.removeItem('auth');
           this.router.navigate(['/login']);
         }

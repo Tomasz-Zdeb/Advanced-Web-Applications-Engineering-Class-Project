@@ -34,7 +34,7 @@ export class StorageSpaceService {
 
   deleteStorageSpace(name: string): Observable<StorageSpace[]> {
     return this.http.delete(`${this.apiUrl}/storagespace/${name}`).pipe(
-      switchMap(() => this.fetchStorageSpaces()), // Refetch the storage spaces after deleting
+      switchMap(() => this.fetchStorageSpaces()),
       catchError(this.handleError<StorageSpace[]>('deleteStorageSpace'))
     );
   }

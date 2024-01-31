@@ -1,10 +1,8 @@
 package com.tzcustom.swims.controller;
 
 import com.tzcustom.swims.model.ItemModel;
-import com.tzcustom.swims.model.PngImageModel;
 import com.tzcustom.swims.model.dto.ItemDeleteDto;
 import com.tzcustom.swims.model.dto.ItemDto;
-import com.tzcustom.swims.repository.ItemRepository;
 import com.tzcustom.swims.service.ItemService;
 import com.tzcustom.swims.service.StorageSpaceService;
 import com.tzcustom.swims.utility.ItemMapper;
@@ -13,13 +11,10 @@ import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 @RestController
@@ -35,7 +30,7 @@ public class ItemController {
     }
 
     @Operation(summary = "Get items of a specific storage space",
-            description = "Returns array of items associated with a storage space of ggiven name")
+            description = "Returns array of items associated with a storage space of given name")
     @GetMapping(value = "by-storage-space")
     public ResponseEntity<List<ItemDto>> getItemsByStorageSpaceName(@RequestParam("storage_space_name") String storageSpaceName) {
         List<ItemModel> itemModels = itemService.findByStorageSpaceName(storageSpaceName);

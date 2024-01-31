@@ -1,11 +1,8 @@
 package com.tzcustom.swims.controller;
 
 import com.tzcustom.swims.model.HelpAccordionItemModel;
-import com.tzcustom.swims.model.StorageSpaceModel;
-import com.tzcustom.swims.model.dto.StorageSpaceDto;
 import com.tzcustom.swims.repository.HelpAccordionItemRepository;
-import com.tzcustom.swims.repository.PngImageRepository;
-import com.tzcustom.swims.utility.StorageSpaceMapper;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,10 +20,11 @@ public class HelpController {
         this.helpAccordionItemRepository = helpAccordionItemRepository;
     }
 
+    @Operation(summary = "Return accordion items", description = "Returns data that feeds accordion help item")
     @GetMapping("/accordionitems")
     public ResponseEntity<List<HelpAccordionItemModel>> getHelpAccordionItems() {
         List<HelpAccordionItemModel> helpAccordionItemModels = helpAccordionItemRepository.findAll();
-        if (helpAccordionItemModels == null || (helpAccordionItemModels.isEmpty())){
+        if (helpAccordionItemModels.isEmpty()){
             return new ResponseEntity<List<HelpAccordionItemModel>>(HttpStatus.NOT_FOUND);
         }
         return ResponseEntity.ok(helpAccordionItemModels);
