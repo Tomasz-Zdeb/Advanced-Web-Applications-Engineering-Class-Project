@@ -42,13 +42,113 @@ INSERT INTO storage_spaces_to_tags (storage_space_name, tag_name) VALUES
 ('electronics-workshop', 'critical'),
 ('wood-workshop', 'critical');
 
-INSERT INTO storage_space_items (name, description, quantity, storage_space_name)
-VALUES 
+INSERT INTO storage_space_items (name, description, quantity, storage_space_name) VALUES 
     ('small-box', 'A small-sized storage box', 5, 'main-warehouse'),
     ('medium-box', 'A medium-sized storage box', 3, 'main-warehouse'),
     ('large-box', 'A large-sized storage box', 2, 'main-warehouse'),
     ('desk-lamp', 'An LED desk lamp', 1, 'main-warehouse'),
-    ('bookshelf', 'A wooden bookshelf', 1, 'main-warehouse');
+    ('bookshelf', 'A wooden bookshelf', 1, 'main-warehouse'),
+    ('box-small-100', 'A small-sized storage box', 20, 'main-warehouse'),
+    ('box-medium-101', 'A medium-sized storage box', 15, 'main-warehouse'),
+    ('box-large-102', 'A large-sized storage box', 10, 'main-warehouse'),
+    ('pallet-103', 'Standard pallet for bulk goods', 30, 'main-warehouse'),
+    ('crate-104', 'A sturdy storage crate', 25, 'main-warehouse');
+
+-- metal-workshop
+INSERT INTO storage_space_items (name, description, quantity, storage_space_name) VALUES 
+    ('metal-sheet-200', 'Sheet metal for crafting', 50, 'metal-workshop'),
+    ('saw-blade-201', 'Blade for metal saw', 40, 'metal-workshop'),
+    ('welding-rod-202', 'Rod for welding metal', 30, 'metal-workshop'),
+    ('drill-bit-metal-203', 'Metal drill bit', 60, 'metal-workshop'),
+    ('grinder-disc-204', 'Disc for metal grinder', 55, 'metal-workshop');
+
+-- pottery
+INSERT INTO storage_space_items (name, description, quantity, storage_space_name) VALUES 
+    ('clay-bag-300', 'Bag of pottery clay', 25, 'pottery'),
+    ('glaze-set-301', 'Set of colorful glazes', 15, 'pottery'),
+    ('kiln-shelf-302', 'Shelf for pottery kiln', 10, 'pottery'),
+    ('pottery-wheel-303', 'Electric pottery wheel', 5, 'pottery'),
+    ('tool-set-pottery-304', 'Tool set for pottery shaping', 20, 'pottery');
+
+    -- electronics-workshop
+INSERT INTO storage_space_items (name, description, quantity, storage_space_name) VALUES 
+    ('soldering-iron-400', 'High precision soldering iron', 12, 'electronics-workshop'),
+    ('multimeter-401', 'Digital multimeter for circuit diagnostics', 8, 'electronics-workshop'),
+    ('circuit-board-402', 'Blank circuit boards for prototyping', 25, 'electronics-workshop'),
+    ('led-pack-403', 'Pack of assorted LEDs', 45, 'electronics-workshop'),
+    ('resistor-kit-404', 'Kit of resistors with various resistances', 30, 'electronics-workshop');
+
+-- wood-workshop
+INSERT INTO storage_space_items (name, description, quantity, storage_space_name) VALUES 
+    ('saw-wood-500', 'Hand saw for cutting wood', 15, 'wood-workshop'),
+    ('wood-glue-501', 'Strong wood glue', 20, 'wood-workshop'),
+    ('sanding-paper-502', 'Assorted sanding paper pack', 50, 'wood-workshop'),
+    ('chisel-set-503', 'Set of wood chisels', 10, 'wood-workshop'),
+    ('plywood-sheet-504', 'Sheets of quality plywood', 25, 'wood-workshop');
+
+-- metalware-storage
+INSERT INTO storage_space_items (name, description, quantity, storage_space_name) VALUES 
+    ('screw-set-600', 'Set of various screws', 100, 'metalware-storage'),
+    ('nail-box-601', 'Box of nails', 75, 'metalware-storage'),
+    ('bolt-collection-602', 'Collection of bolts', 80, 'metalware-storage'),
+    ('washer-assortment-603', 'Assortment of washers', 90, 'metalware-storage'),
+    ('hinge-pack-604', 'Pack of metal hinges', 60, 'metalware-storage');
+
+-- cars-storage
+INSERT INTO storage_space_items (name, description, quantity, storage_space_name) VALUES 
+    ('sports-car-cover-700', 'Protective cover for sports cars', 5, 'cars-storage'),
+    ('car-polish-701', 'High quality car polish', 15, 'cars-storage'),
+    ('tire-inflator-702', 'Portable tire inflator', 10, 'cars-storage'),
+    ('battery-charger-703', 'Car battery charger', 8, 'cars-storage'),
+    ('oil-filter-704', 'Oil filter for sports cars', 20, 'cars-storage');
+
+-- armory
+INSERT INTO storage_space_items (name, description, quantity, storage_space_name) VALUES 
+    ('rifle-stand-800', 'Stand for displaying rifles', 10, 'armory'),
+    ('ammo-box-801', 'Metal box for ammunition storage', 30, 'armory'),
+    ('gun-cleaning-kit-802', 'Comprehensive gun cleaning kit', 15, 'armory'),
+    ('pistol-holster-803', 'Leather holster for pistols', 25, 'armory'),
+    ('tactical-gloves-804', 'Pair of tactical gloves', 20, 'armory');
+
+-- small-warehouse
+INSERT INTO storage_space_items (name, description, quantity, storage_space_name) VALUES 
+    ('small-container-900', 'Small-sized container', 40, 'small-warehouse'),
+    ('packing-tape-901', 'Strong packing tape', 50, 'small-warehouse'),
+    ('label-printer-902', 'Printer for labeling boxes', 10, 'small-warehouse'),
+    ('box-cutter-903', 'Sharp box cutter', 30, 'small-warehouse'),
+    ('pallet-jack-904', 'Manual pallet jack', 5, 'small-warehouse');
+
+-- crane-storage
+INSERT INTO storage_space_items (name, description, quantity, storage_space_name) VALUES 
+    ('crane-hook-1000', 'Heavy-duty crane hook', 12, 'crane-storage'),
+    ('lifting-strap-1001', 'Durable lifting straps', 20, 'crane-storage'),
+    ('chain-slings-1002', 'Set of chain slings', 15, 'crane-storage'),
+    ('crane-scale-1003', 'Digital crane scale', 8, 'crane-storage'),
+    ('spreader-beam-1004', 'Adjustable spreader beam', 6, 'crane-storage');
+
+-- guitar-center
+INSERT INTO storage_space_items (name, description, quantity, storage_space_name) VALUES 
+    ('acoustic-guitar-1100', 'Quality acoustic guitar', 15, 'guitar-center'),
+    ('electric-guitar-1101', 'Electric guitar with vintage sound', 10, 'guitar-center'),
+    ('guitar-strings-1102', 'Sets of guitar strings', 40, 'guitar-center'),
+    ('guitar-picks-1103', 'Assorted guitar picks', 100, 'guitar-center'),
+    ('guitar-amp-1104', 'Guitar amplifier for performances', 7, 'guitar-center');
+
+-- wheel-storage
+INSERT INTO storage_space_items (name, description, quantity, storage_space_name) VALUES 
+    ('car-wheel-1200', 'Durable car wheel', 25, 'wheel-storage'),
+    ('bike-wheel-1201', 'Mountain bike wheel', 20, 'wheel-storage'),
+    ('wheel-nuts-1202', 'Set of wheel nuts', 50, 'wheel-storage'),
+    ('wheel-spanner-1203', 'Heavy-duty wheel spanner', 30, 'wheel-storage'),
+    ('tire-lever-1204', 'Sturdy tire lever', 40, 'wheel-storage');
+
+-- pipe-storage
+INSERT INTO storage_space_items (name, description, quantity, storage_space_name) VALUES 
+    ('pvc-pipe-1300', 'Long PVC pipe', 60, 'pipe-storage'),
+    ('copper-pipe-1301', 'Copper pipe for plumbing', 30, 'pipe-storage'),
+    ('pipe-clamps-1302', 'Clamps for securing pipes', 80, 'pipe-storage'),
+    ('pipe-cutter-1303', 'Sharp pipe cutter', 25, 'pipe-storage'),
+    ('pipe-insulation-1304', 'Foam insulation for pipes', 40, 'pipe-storage');
 
 INSERT INTO help_accordion_contents (id, title, content) VALUES
 ('collapseOne', 'How to use Storage Spaces', 'Storage Spaces provide a versatile way to organize your items. From the intuitive user interface to advanced categorization options, learn how you can maximize efficiency. Understand how to label your items, create custom storage categories, and utilize digital tracking for easy access. Discover the benefits of remote management and how to optimize space using our smart layout tools.'),
