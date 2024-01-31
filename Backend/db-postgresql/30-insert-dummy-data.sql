@@ -1,5 +1,3 @@
-INSERT INTO public.test_table VALUES (DEFAULT, 1, 'abc', DEFAULT);
-
 INSERT INTO user_table (user_name, password, active, role)
 VALUES
     ('user1', 'password1', true, 'ROLE_USER'),
