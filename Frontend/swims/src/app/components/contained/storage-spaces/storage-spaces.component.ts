@@ -59,7 +59,7 @@ export class StorageSpacesComponent implements OnInit{
 
   deleteStorageSpace(name: string) {
     this.storageSpaceService.deleteStorageSpace(name).subscribe(
-      updatedSpaces => {
+      (updatedSpaces: any) => {
         this.storageSpaces = updatedSpaces;
       },
       error => console.error('Error deleting storage space:', error)

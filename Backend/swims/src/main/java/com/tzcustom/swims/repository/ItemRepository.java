@@ -9,5 +9,6 @@ import java.util.Optional;
 public interface ItemRepository extends JpaRepository<ItemModel, String> {
     List<ItemModel> findByStorageSpaceName(String storageSpaceName);
     void deleteByNameAndStorageSpaceName(String name, String storageSpaceName);
+    void deleteByStorageSpaceName(String storageSpaceName);
     Optional<ItemModel> findByNameAndStorageSpaceName(String name, String storageSpaceName);
 }

@@ -29,6 +29,11 @@ public class ItemService {
         itemRepository.deleteByNameAndStorageSpaceName(name, storageSpaceName);
     }
 
+    @Transactional
+    public void deleteByStorageSpaceName(String storageSpaceName){
+        itemRepository.deleteByStorageSpaceName(storageSpaceName);
+    }
+
     public ItemModel createItem(ItemModel itemModel) {
         Optional<ItemModel> existingItem = itemRepository.findByNameAndStorageSpaceName(itemModel.getName(),itemModel.getStorageSpaceName());
         if(existingItem.isPresent()){

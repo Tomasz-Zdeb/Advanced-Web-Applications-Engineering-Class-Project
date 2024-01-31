@@ -40,7 +40,7 @@ public class StorageSpaceService {
             storageSpaceRepository.save(storageSpace.get());
             Optional<PngImageModel> associatedImage =  pngImageRepository.findById(storageSpace.get().getImageUUID());
             associatedImage.ifPresent(pngImageRepository::delete);
-
+            itemService.deleteByStorageSpaceName(name);
             storageSpaceRepository.delete(storageSpace.get());
         }
     }
