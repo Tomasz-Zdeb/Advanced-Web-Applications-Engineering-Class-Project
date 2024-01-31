@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BreadcrumbService } from '../../../services/breadcrumb.service';
 
@@ -7,8 +7,9 @@ import { BreadcrumbService } from '../../../services/breadcrumb.service';
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.css']
 })
-export class SettingsComponent implements OnInit{
+export class SettingsComponent{
   isXlScreen: boolean;
+  showAlert = true;
 
   constructor(private http: HttpClient, private breadcrumbService: BreadcrumbService) {
     this.isXlScreen = window.innerWidth >= 1200;
@@ -20,22 +21,9 @@ export class SettingsComponent implements OnInit{
     this.isXlScreen = width >= 1200;
   }
 
-  ngOnInit() {
-    //this.fetchData();
+  dismissAlert() {
+    this.showAlert = false;
   }
-
-  // fetchData() {
-  //   const url = 'http://localhost:8080/api/public/test';
-  //   this.http.get<string>(url, { responseType: 'text' as 'json' }).subscribe(
-  //     data => {
-  //       this.testData = data;
-  //       console.log('Data fetched:', this.testData);
-  //     },
-  //     error => {
-  //       console.error('Error:', error);
-  //     }
-  //   );
-  // }
 }
 
 

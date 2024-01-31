@@ -4,5 +4,75 @@
     </div>
     <div class="flex-grow-1" style="background-color: #ababab;">
         <swims-breadcrumb></swims-breadcrumb>
+        <h3 class="ms-5 mt-5 text-center" style="color: #444; border: 3px">SWIMS Application Settings</h3>
+        <hr class="border-2">
+        <div class="container mt-4">
+            <div *ngIf="showAlert" class="alert alert-warning alert-dismissible fade show" role="alert">
+                WARNING: Settings Page is A Static Mock 🤠
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="dismissAlert()"></button>
+            </div>
+              
+              
+            <div class="card" style="background-color: #eee;">
+                <div class="card-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="settingSelect1" class="form-label">Some Setting</label>
+                            <select class="form-select" id="settingSelect1">
+                                <option value="1">Option 1</option>
+                                <option value="2" selected>Option 2</option>
+                                <option value="3">Option 3</option>
+                                <option value="2">Option 4</option>
+                                <option value="2">Option 5</option>
+                                <option value="2">Option 6</option>
+                                <option value="2">Option 7</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="settingSelect1" class="form-label">Some Other Settings</label>
+                            <select class="form-select" id="settingSelect1">
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option>
+                                <option value="2">Option 4</option>
+                                <option value="2">Option 5</option>
+                                <option value="2">Option 6</option>
+                                <option value="2" selected>Option 7</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="settingCheckbox1">
+                            <label class="form-check-label" for="settingCheckbox1">Enable Setting 2</label>
+                        </div>
+
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="settingCheckbox1" checked>
+                            <label class="form-check-label" for="settingCheckbox1">Enable Setting 2</label>
+                        </div>
+
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="settingCheckbox1">
+                            <label class="form-check-label" for="settingCheckbox1">Enable Setting 2</label>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="settingSelect1" class="form-label">A Final Setting</label>
+                            <select class="form-select" id="settingSelect1">
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3" selected>Option 3</option>
+                                <option value="2">Option 4</option>
+                                <option value="2">Option 5</option>
+                                <option value="2">Option 6</option>
+                                <option value="2">Option 7</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn swims-btn">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

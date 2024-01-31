@@ -1,0 +1,28 @@
+.swims-btn{
+    background-color: #999;
+}
+
+.swims-btn:hover{
+    background-color: #777;
+}
+
+.form-select:focus {
+    border-color: #999;
+    box-shadow: 0 0 0.2rem 0.2rem #999;
+}
+
+input[type="checkbox"]:focus {
+    outline: 2px solid gray;
+    border-color: #999;
+    box-shadow: 0 0 0.2rem 0.2rem #999;
+}
+
+input[type="checkbox"]:checked {
+    background-color: gray;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 1px solid gray;
+    width: 15px;
+    height: 15px;
+}
