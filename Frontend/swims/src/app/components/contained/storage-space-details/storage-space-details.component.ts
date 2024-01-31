@@ -146,4 +146,20 @@ export class StorageSpaceDetailsComponent implements OnInit{
       }
     );
   }
+
+  sortByNameAsc() {
+    this.items.sort((a, b) => a.name.localeCompare(b.name));
+  }
+
+  sortByNameDesc() {
+    this.items.sort((a, b) => b.name.localeCompare(a.name));
+  }
+
+  sortByQuantityAsc() {
+    this.items.sort((a, b) => a.quantity - b.quantity);
+  }
+
+  sortByQuantityDesc() {
+    this.items.sort((a, b) => b.quantity - a.quantity);
+  }
 }

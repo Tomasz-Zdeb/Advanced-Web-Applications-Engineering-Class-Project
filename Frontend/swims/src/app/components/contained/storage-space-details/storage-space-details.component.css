@@ -19,3 +19,17 @@
     border-color: #999;
     box-shadow: 0 0 0.2rem 0.2rem #999;
 }
+
+.vertical-line {
+    height: 100%; /* Adjust the height as needed */
+    width: 2px; /* Line width */
+    background-color: #555; /* Line color */
+}
+
+.swims-btn-sort{
+    background-color: #bbb;
+}
+
+.swims-btn-sort:hover{
+    background-color: #999;
+}

@@ -7,17 +7,22 @@
       <small class="text-muted">🏷</small>
       <span class="ms-1 me-1 pb-1 ps-3 pe-3 rounded-4" *ngFor="let tag of storageSpace.tags" style="border: 1.5px #888 solid; color: #888;">{{ tag.name }}</span>
     </div>
-    <!-- ITEM LIST BELOW -->
     <div class="card" style="background-color: #d8d8d8;">
       <div class="card-body">
         <h4 class="card-title" style="color: #333;">Items</h4>
 
-        <!-- Button To Toggle Form For Creating New Item-->
         <div class="my-3" *ngIf="!isCreatingItem">
-          <button class="btn swims-btn" (click)="showCreateItemForm()">Create New Item</button>
+          <button class="btn swims-btn me-2" (click)="showCreateItemForm()">Create New Item</button>
+
+          <span style="color:#555">|</span>
+
+          <button type="button" class="btn swims-btn-sort ms-2" (click)="sortByNameAsc()">Name <i class="bi bi-arrow-up"></i></button>
+          <button type="button" class="btn swims-btn-sort ms-2" (click)="sortByNameDesc()">Name <i class="bi bi-arrow-down"></i></button>
+          <button type="button" class="btn swims-btn-sort ms-2" (click)="sortByQuantityAsc()">Quantity <i class="bi bi-arrow-up"></i></button>
+          <button type="button" class="btn swims-btn-sort ms-2" (click)="sortByQuantityDesc()">Quantity <i class="bi bi-arrow-down"></i></button>
+
         </div>
 
-        <!-- Form For Creating New Item-->
         <div *ngIf="isCreatingItem" class="create-item-form p-3 rounded-3 mb-2" style="border: 4px #eee solid">
           <h4 style="color: #444;">Create New Item</h4>
 
@@ -52,7 +57,7 @@
               <input type="text" class="form-control" id="storageSpaceName" [(ngModel)]="newItem.storageSpaceName" placeholder="" name="storageSpaceName" readonly style="user-select: none;">
               <label for="storageSpaceName" style="user-select: none;">Storage Space Name</label>
             </div>            
-        
+
             <button type="submit" class="btn swims-btn" [disabled]="!itemForm.form.valid">Create Item</button>
             <button type="button" class="btn swims-btn ms-2" (click)="cancelCreation()">Cancel</button>
           </form>
