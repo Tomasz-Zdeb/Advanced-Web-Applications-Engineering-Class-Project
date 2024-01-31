@@ -18,6 +18,7 @@ export class SwimshelpComponent implements OnInit{
   accordionItems: AccordionItem[] = [];
   isXlScreen: boolean;
   testData: string = '';
+  showAlert = true;
 
   constructor(private http: HttpClient, private breadcrumbService: BreadcrumbService) {
     this.isXlScreen = window.innerWidth >= 1200;
@@ -32,6 +33,7 @@ export class SwimshelpComponent implements OnInit{
   onResize(width: number) {
     this.isXlScreen = width >= 1200;
   }
+
   fetchData() {
     const url = 'http://localhost:8080/api/help/accordionitems';
     this.http.get<AccordionItem[]>(url).subscribe(
@@ -44,4 +46,9 @@ export class SwimshelpComponent implements OnInit{
       }
     );
   }
+
+  dismissAlert() {
+    this.showAlert = false;
+  }
+
 }

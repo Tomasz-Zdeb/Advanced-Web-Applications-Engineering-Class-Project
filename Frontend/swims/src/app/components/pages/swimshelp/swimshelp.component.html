@@ -4,11 +4,13 @@
     </div>
     <div class="flex-grow-1 " style="background-color: #ababab;">
         <swims-breadcrumb></swims-breadcrumb>
+        <h3 class="ms-5 mt-5 text-center" style="color: #444; border: 3px">SWIMS Help</h3>
+        <hr class="border-2">
         <div class="container mt-4">
-            <div class="alert alert-success" role="alert">
-                WARNING: This is help page is dynamically fetched from API ✅
-            </div>
-
+          <div *ngIf="showAlert" class="alert alert-success alert-dismissible fade show" role="alert">
+              Help page data is dynamically fetched from API ✅ 
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="dismissAlert()"></button>
+          </div>
             <div class="card" >
                 <div class="card-header" style="background-color: #eee;">
                     Help Topics 💁‍♂️
