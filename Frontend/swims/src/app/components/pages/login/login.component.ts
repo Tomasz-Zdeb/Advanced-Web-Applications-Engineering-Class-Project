@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit{
       'Authorization': 'Basic ' + encodedCredentials
     });
 
-    this.http.get('http://localhost:8080/api/public/test', { headers: headers, responseType: 'text' })
+    this.http.get('http://localhost:8080/api/public/login', { headers: headers, responseType: 'text' })
       .subscribe(
         data => {
           console.log('Login successful', data);
