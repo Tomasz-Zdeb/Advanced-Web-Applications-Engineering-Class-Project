@@ -2,14 +2,17 @@ package com.tzcustom.swims.service;
 
 import com.tzcustom.swims.model.PngImageModel;
 import com.tzcustom.swims.model.StorageSpaceModel;
+import com.tzcustom.swims.model.dto.StorageSpaceStatisticDto;
 import com.tzcustom.swims.repository.PngImageRepository;
 import com.tzcustom.swims.repository.StorageSpaceRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class StorageSpaceService {
@@ -17,10 +20,17 @@ public class StorageSpaceService {
     private final StorageSpaceRepository storageSpaceRepository;
     private final PngImageRepository pngImageRepository;
 
-    StorageSpaceService(StorageSpaceRepository storageSpaceRepository, PngImageRepository pngImageRepository){
+    private final ItemService itemService;
+
+    StorageSpaceService(StorageSpaceRepository storageSpaceRepository,
+                        PngImageRepository pngImageRepository,
+                        ItemService itemService){
         this.storageSpaceRepository = storageSpaceRepository;
         this.pngImageRepository = pngImageRepository;
+        this.itemService = itemService;
     }
+
+
 
     @Transactional
     public void deleteStorageSpaceFromDB(String name) {
@@ -45,6 +55,19 @@ public class StorageSpaceService {
         return storageSpaceRepository.findById(name);
     }
 
+    public List<StorageSpaceStatisticDto> getStorageSpaceStatistics(){
+        List<StorageSpaceStatisticDto> spaceDtos;
+        List<StorageSpaceModel> storageSpaces = fetchStorageSpacesFromDb();
+        spaceDtos = storageSpaces.stream()
+                .map((storageSpace) -> {
+                    StorageSpaceStatisticDto tmpStatDto = new StorageSpaceStatisticDto();
+                    tmpStatDto.setName(storageSpace.getName());
+                    tmpStatDto.setItemNumber(itemService.findByStorageSpaceName(tmpStatDto.getName()).size());
+                    return tmpStatDto;
+                })
+                .collect(Collectors.toList());
+        return spaceDtos;
+    }
 }
 
 

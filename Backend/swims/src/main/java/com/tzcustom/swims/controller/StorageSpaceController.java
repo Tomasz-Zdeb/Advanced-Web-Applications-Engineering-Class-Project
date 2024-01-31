@@ -2,6 +2,7 @@ package com.tzcustom.swims.controller;
 
 import com.tzcustom.swims.model.StorageSpaceModel;
 import com.tzcustom.swims.model.dto.StorageSpaceDto;
+import com.tzcustom.swims.model.dto.StorageSpaceStatisticDto;
 import com.tzcustom.swims.repository.StorageSpaceRepository;
 import com.tzcustom.swims.service.StorageSpaceService;
 import com.tzcustom.swims.utility.StorageSpaceMapper;
@@ -26,7 +27,7 @@ public class StorageSpaceController {
     }
 
     @GetMapping("/storagespaces")
-    public ResponseEntity<List<StorageSpaceDto>> getPublikacje() {
+    public ResponseEntity<List<StorageSpaceDto>> getStorageSpaces() {
         List<StorageSpaceModel> storageSpaceModels = storageSpaceService.fetchStorageSpacesFromDb();
         if (storageSpaceModels == null || (storageSpaceModels.isEmpty())){
             return new ResponseEntity<List<StorageSpaceDto>>(HttpStatus.NOT_FOUND);
@@ -44,5 +45,14 @@ public class StorageSpaceController {
         }
         storageSpaceService.deleteStorageSpaceFromDB(name);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping("/storagespaces/stats")
+    public ResponseEntity<List<StorageSpaceStatisticDto>> getStorageSpaceStatistics(){
+        List<StorageSpaceStatisticDto> storageSpaceStatistics = storageSpaceService.getStorageSpaceStatistics();
+        if (storageSpaceStatistics == null || (storageSpaceStatistics.isEmpty())){
+            return new ResponseEntity<List<StorageSpaceStatisticDto>>(HttpStatus.NOT_FOUND);
+        }
+        return ResponseEntity.ok(storageSpaceStatistics);
     }
 }
